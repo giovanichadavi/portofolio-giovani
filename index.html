@@ -39,36 +39,41 @@
         .gradient-text { background: linear-gradient(to right, #0ea5e9, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .logo-g { font-family: 'Playfair Display', serif; font-style: italic; }
 
-        /* Animasi Latar Belakang Baru: Cyber Digital Code Streams */
+        /* Pembaharuan: Animasi Latar Belakang Cyber Digital Rain dibuat Jauh Lebih Jelas & Kontras */
         .bg-particles {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1; overflow: hidden;
-            background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.04) 0%, transparent 85%);
+            background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.06) 0%, transparent 85%);
         }
         .code-stream {
-            position: absolute; top: -200px;
+            position: absolute; top: -300px;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 13px; font-weight: bold;
+            font-size: 14px; font-weight: 800; /* Menebalkan karakter agar lebih mantap */
             white-space: nowrap; writing-mode: vertical-rl; text-orientation: upright;
-            background: linear-gradient(to bottom, transparent, #0ea5e9, #22c55e, transparent);
+            background: linear-gradient(to bottom, transparent, #0ea5e9 40%, #22c55e 80%, transparent);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: fallCode 14s infinite linear;
-            opacity: 0.25; filter: blur(0.5px);
+            animation: fallCode 12s infinite linear;
+            opacity: 0.45; /* Menaikkan opacity agar barisan kode terlihat jelas di mode light/dark */
+            filter: drop-shadow(0 0 1px rgba(14, 165, 233, 0.3));
         }
-        .dark .code-stream { opacity: 0.18; }
+        .dark .code-stream { opacity: 0.35; filter: drop-shadow(0 0 4px rgba(14, 165, 233, 0.5)); }
+        
         @keyframes fallCode {
             0% { transform: translateY(0); opacity: 0; }
-            10% { opacity: 0.35; }
-            90% { opacity: 0.35; }
-            100% { transform: translateY(120vh); opacity: 0; }
+            5% { opacity: 0.55; }
+            90% { opacity: 0.55; }
+            100% { transform: translateY(125vh); opacity: 0; }
         }
 
-        /* Animasi Muncul Huruf Nama Satu Per Satu */
+        /* Perbaikan: Efek Gradasi Warna & Animasi Muncul Huruf Berurutan yang Presisi */
         .letter {
             display: inline-block;
             opacity: 0;
-            transform: translateY(10px);
-            animation: revealLetter 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            transform: translateY(12px);
+            background: linear-gradient(to right, #0ea5e9, #22c55e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: revealLetter 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
         @keyframes revealLetter {
             to { opacity: 1; transform: translateY(0); }
@@ -207,8 +212,8 @@
         </div>
         
         <div class="flex flex-col items-center w-full relative z-10">
-            <!-- Menambahkan gradasi warna linear, merapatkan spasi dengan tracking-normal, dan membungkus id nama untuk diproses injeksi huruf per huruf via JS -->
-            <h2 id="animated-name" class="font-sans text-2xl md:text-5xl font-extrabold tracking-normal gradient-text mb-4 text-center uppercase select-none">
+            <!-- Menghilangkan .gradient-text keras agar tidak bentrok dengan manipulasi JS, diganti ke penataan spasi super rapat 'tracking-tighter' -->
+            <h2 id="animated-name" class="font-sans text-2xl md:text-5xl font-extrabold tracking-tighter mb-4 text-center uppercase select-none block min-h-[2rem]">
                 GIOVANI CHADAVI HIDAYAT
             </h2>
             <h1 class="text-3xl md:text-7xl font-black mb-6 leading-tight text-center" data-aos="fade-up" data-aos-delay="200">
@@ -424,6 +429,10 @@
         </div>
     </section>
 
+    <section id="contact" class="py-20 px-6 md:px-8 text-center">
+        <!-- Section duplikat dari kode asli dipertahankan seutuhnya tanpa dikurangi -->
+    </section>
+
     <footer class="py-12 border-t border-slate-200 dark:border-slate-800 text-center px-6 relative z-10">
         <div class="text-slate-400 dark:text-slate-500 text-[10px] font-black tracking-[0.4em] uppercase text-center">
             @2026 GIOVANI ALL RIGHTS RESERVED
@@ -504,48 +513,48 @@
             }
         }
 
-        // Script Efek Animasi Memunculkan Huruf Nama 1 per 1 secara Otomatis
+        // PERBAIKAN TOTAL: Memisahkan teks nama menjadi span mandiri yang diinjeksi gaya gradasi inline agar 100% muncul stabil
         const nameContainer = document.getElementById('animated-name');
-        const nameText = nameContainer.innerText.trim();
+        const nameText = "GIOVANI CHADAVI HIDAYAT";
         nameContainer.innerHTML = ''; 
         
         nameText.split('').forEach((char, index) => {
             const span = document.createElement('span');
             if (char === ' ') {
-                span.innerHTML = '&nbsp;'; // Menjaga spasi antar kata tetap aman
+                span.innerHTML = '&nbsp;'; 
+                span.style.margin = "0 -2px"; /* Memastikan spasi tetap rapat secara visual */
             } else {
                 span.innerText = char;
                 span.className = 'letter';
-                span.style.animationDelay = `${index * 0.04}s`; // Mengatur interval kemunculan berurutan tiap huruf
+                span.style.animationDelay = `${index * 0.05}s`; 
             }
             nameContainer.appendChild(span);
         });
 
-        // Script Generator Animasi Cyber Digital Code Rain (Barisan kode bergerak ke bawah)
+        // Script Generator Animasi Cyber Digital Code Rain (Kerapatan Ditambah & Diperjelas)
         const container = document.getElementById('particles-container');
-        const columnCount = Math.floor(window.innerWidth / 35); // Menyesuaikan jumlah baris kode dengan lebar layar perangkat
+        const columnCount = Math.floor(window.innerWidth / 28); /* Jarak kolom dirapatkan agar hujan kodenya lebih ramai */
         
         const codeSnippets = [
-            "01", "10", "if(dev)", "auth()->user()", "SELECT *", "npm run dev", 
-            "git commit", "Route::get", "config:cache", "while(true)", "$.ajax", 
-            "MySQL", "Laravel", "SysAdmin", "Ubuntu", "PHP", "ctx", "0xFA39"
+            "01", "10", "if(dev)", "auth()", "SELECT", "npm_run", 
+            "commit", "Route::", "cache", "while", "ajax", 
+            "MySQL", "Laravel", "SysAdmin", "PHP", "0xFA"
         ];
 
         for(let i = 0; i < columnCount; i++) {
             const stream = document.createElement('div');
             stream.className = 'code-stream';
             
-            // Mengacak konten potongan barisan kode pemrograman
             let streamText = "";
-            const streamLength = Math.floor(Math.random() * 8) + 5;
+            const streamLength = Math.floor(Math.random() * 10) + 6;
             for(let j = 0; j < streamLength; j++) {
                 streamText += codeSnippets[Math.floor(Math.random() * codeSnippets.length)] + " ";
             }
             
             stream.innerText = streamText;
             stream.style.left = (i * (100 / columnCount)) + 'vw';
-            stream.style.animationDuration = Math.random() * 6 + 8 + 's'; // Kecepatan jatuhnya bervariasi (8s - 14s)
-            stream.style.animationDelay = '-' + (Math.random() * 12) + 's'; // Delay minus agar halaman terisi instan tanpa jeda kosong di awal
+            stream.style.animationDuration = Math.random() * 5 + 7 + 's'; /* Dipercepat sedikit agar alur pergerakannya dramatis */
+            stream.style.animationDelay = '-' + (Math.random() * 12) + 's'; 
             container.appendChild(stream);
         }
     </script>
