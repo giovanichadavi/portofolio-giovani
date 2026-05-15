@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software Developer Portfolio</title>
+    <title>Giovani Portofolio</title>
     
-    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/606/606259.png">
+    <link rel="icon" type="image/jpeg" href="profil.jpg">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -32,172 +32,222 @@
         
         /* Navbar Scrolled Effect */
         nav.scrolled {
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(12px);
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 9999px;
             width: 90%;
             left: 5%;
             top: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .dark nav.scrolled {
+            background: rgba(30, 41, 59, 0.9);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
         }
         
         @media (max-width: 768px) {
             nav.scrolled { width: 95%; left: 2.5%; }
         }
+
+        /* Animasi Teks Bergerak (Typing) */
+        .typing-text::after {
+            content: "";
+            animation: typing 3s infinite;
+        }
+
+        @keyframes typing {
+            0% { content: "Software Developer"; }
+            50% { content: "System Administrator"; }
+            100% { content: "Tech Enthusiast"; }
+        }
+
+        /* Dark Mode Toggle Premium Look */
+        .toggle-checkbox { display: none; }
+        .toggle-label {
+            width: 50px;
+            height: 26px;
+            background-color: #334155;
+            display: flex;
+            border-radius: 50px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            position: relative;
+            cursor: pointer;
+        }
+        .toggle-ball {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            position: absolute;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+        .dark .toggle-ball { transform: translateX(24px); }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-dark-bg text-slate-800 dark:text-slate-100 transition-colors duration-300">
 
     <nav id="main-nav" class="fixed top-0 w-full z-50 transition-all duration-300 py-6 px-10 flex justify-between items-center">
-        <div class="text-2xl font-black gradient-text tracking-tighter">DEV.PORTFOLIO</div>
+        <div class="text-2xl font-black gradient-text tracking-tighter uppercase">Giovani Portofolio</div>
         
         <div class="hidden md:flex gap-8 items-center font-bold text-xs uppercase tracking-widest">
-            <a href="#about" class="hover:text-primary transition">About</a>
-            <a href="#skills" class="hover:text-primary transition">Skills</a>
-            <a href="#projects" class="hover:text-primary transition">Projects</a>
-            <a href="#contact" class="hover:text-primary transition">Contact</a>
+            <a href="#about" class="nav-link text-slate-600 dark:text-slate-300 hover:text-primary transition">About</a>
+            <a href="#skills" class="nav-link text-slate-600 dark:text-slate-300 hover:text-primary transition">Skills</a>
+            <a href="#projects" class="nav-link text-slate-600 dark:text-slate-300 hover:text-primary transition">Projects</a>
+            <a href="#contact" class="nav-link text-slate-600 dark:text-slate-300 hover:text-primary transition">Contact</a>
             
-            <button id="theme-toggle" class="p-2 bg-slate-200 dark:bg-slate-800 rounded-full text-lg">
-                <i class="fas fa-moon dark:hidden"></i>
-                <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
-            </button>
+            <div id="theme-toggle-container" class="ml-4">
+                <label class="toggle-label" id="theme-toggle">
+                    <i class="fas fa-moon text-blue-400 text-xs"></i>
+                    <i class="fas fa-sun text-yellow-400 text-xs"></i>
+                    <div class="toggle-ball"></div>
+                </label>
+            </div>
+
+            <button class="bg-primary text-white px-6 py-2 rounded-full uppercase shadow-lg hover:opacity-90 transition">Login</button>
         </div>
         
-        <button class="md:hidden text-2xl" id="menu-btn"><i class="fas fa-bars"></i></button>
+        <button class="md:hidden text-2xl" id="menu-btn"><i class="fas fa-bars text-primary"></i></button>
     </nav>
 
     <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-20">
         <div data-aos="zoom-in" class="mb-6 relative">
             <div class="w-32 h-32 md:w-44 md:h-44 rounded-full border-4 border-primary overflow-hidden shadow-2xl mx-auto">
-                <img src="https://via.placeholder.com/300" alt="Profile" class="w-full h-full object-cover">
+                <img src="profil.jpg" alt="Giovani Profile" class="w-full h-full object-cover">
             </div>
             <div class="absolute -bottom-2 -right-2 bg-green-500 w-6 h-6 rounded-full border-4 border-dark-bg"></div>
         </div>
         
-        <h2 data-aos="fade-up" class="text-sm font-bold uppercase tracking-[0.5em] text-primary mb-4">Hello, I am a</h2>
+        <h2 data-aos="fade-up" class="text-sm font-bold uppercase tracking-[0.5em] text-primary mb-4">Giovani's Space</h2>
         <h1 data-aos="fade-up" data-aos-delay="200" class="text-4xl md:text-7xl font-black mb-6 leading-tight">
-            Software Developer & <br> <span class="gradient-text">System Administrator</span>
+            Professional <br> <span class="gradient-text typing-text"></span>
         </h1>
         <p data-aos="fade-up" data-aos-delay="400" class="max-w-2xl text-slate-500 dark:text-slate-400 text-lg mb-10 leading-relaxed">
-            Berpengalaman dalam membangun aplikasi web menggunakan Laravel dan mengelola infrastruktur server dengan keamanan tingkat tinggi.
+            Membangun infrastruktur digital yang aman dan aplikasi web yang efisien menggunakan ekosistem Laravel & PHP.
         </p>
         
         <div data-aos="fade-up" data-aos-delay="600" class="flex gap-4">
-            <a href="#projects" class="bg-primary text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-opacity-90 transition">View Projects</a>
+            <a href="#projects" class="bg-primary text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-opacity-90 transition">Projects</a>
             <a href="#contact" class="border-2 border-slate-300 dark:border-slate-700 px-8 py-4 rounded-full font-bold hover:border-primary transition">Contact Me</a>
         </div>
     </section>
 
-    <section id="skills" class="py-32 px-10 bg-white dark:bg-slate-900/50">
-        <div class="max-w-7xl mx-auto">
-            <h3 class="text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6">Technical Skills</h3>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <section id="skills" class="py-24 px-10 bg-white dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto text-center md:text-left">
+            <h3 class="text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6 inline-block">Technical Skills</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-10">
                 <div data-aos="flip-up" class="p-8 rounded-3xl bg-slate-100 dark:bg-slate-800 text-center hover:shadow-2xl transition group">
                     <i class="fab fa-laravel text-5xl text-red-500 mb-4 group-hover:scale-110 transition"></i>
-                    <h4 class="font-bold">PHP / Laravel</h4>
+                    <h4 class="font-bold">Laravel</h4>
                 </div>
                 <div data-aos="flip-up" data-aos-delay="100" class="p-8 rounded-3xl bg-slate-100 dark:bg-slate-800 text-center hover:shadow-2xl transition group">
                     <i class="fas fa-server text-5xl text-blue-500 mb-4 group-hover:scale-110 transition"></i>
-                    <h4 class="font-bold">System Admin</h4>
+                    <h4 class="font-bold">SysAdmin</h4>
                 </div>
                 <div data-aos="flip-up" data-aos-delay="200" class="p-8 rounded-3xl bg-slate-100 dark:bg-slate-800 text-center hover:shadow-2xl transition group">
                     <i class="fas fa-database text-5xl text-yellow-500 mb-4 group-hover:scale-110 transition"></i>
-                    <h4 class="font-bold">MySQL / SQL</h4>
+                    <h4 class="font-bold">MySQL</h4>
                 </div>
                 <div data-aos="flip-up" data-aos-delay="300" class="p-8 rounded-3xl bg-slate-100 dark:bg-slate-800 text-center hover:shadow-2xl transition group">
                     <i class="fas fa-shield-halved text-5xl text-green-500 mb-4 group-hover:scale-110 transition"></i>
-                    <h4 class="font-bold">Cyber Security</h4>
+                    <h4 class="font-bold">Security</h4>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-32 px-10">
+    <section id="projects" class="py-24 px-10">
         <div class="max-w-7xl mx-auto">
-            <div class="flex justify-between items-end mb-16">
-                <div>
-                    <h3 class="text-3xl font-black uppercase border-l-8 border-primary pl-6">Featured Projects</h3>
-                    <p class="text-slate-500 mt-2">Karya terbaik yang pernah saya bangun.</p>
-                </div>
-            </div>
-
+            <h3 class="text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6">Featured Projects</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div data-aos="fade-up" class="group rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl">
+                <div data-aos="fade-up" class="group rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl border dark:border-gray-700">
                     <div class="h-64 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-10">
-                        <h4 class="text-2xl font-black mb-4">Risk Management System</h4>
-                        <p class="text-slate-500 dark:text-slate-400 mb-6">Aplikasi enterprise berbasis Laravel untuk pencatatan risiko perusahaan dengan fitur user tracking.</p>
-                        <div class="flex gap-2">
-                            <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold">Laravel</span>
-                            <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold">MySQL</span>
-                        </div>
+                        <h4 class="text-2xl font-black mb-4">Enterprise Risk System</h4>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6">Sistem manajemen risiko terintegrasi menggunakan Laravel Framework.</p>
+                        <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Tech Stack: Laravel</span>
                     </div>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="200" class="group rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl">
+                <div data-aos="fade-up" data-aos-delay="200" class="group rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl border dark:border-gray-700">
                     <div class="h-64 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-10">
-                        <h4 class="text-2xl font-black mb-4">Server Monitoring Dashboard</h4>
-                        <p class="text-slate-500 dark:text-slate-400 mb-6">Monitoring kesehatan server dan otomatisasi backup data untuk keamanan aset digital.</p>
-                        <div class="flex gap-2">
-                            <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold">Linux</span>
-                            <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold">PHP</span>
-                        </div>
+                        <h4 class="text-2xl font-black mb-4">Server Monitor Dashboard</h4>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6">Dashboard real-time untuk memantau performa dan keamanan server.</p>
+                        <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Tech Stack: PHP AdminLTE</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-32 px-10 bg-primary text-white text-center">
-        <div data-aos="zoom-in">
-            <h3 class="text-4xl md:text-6xl font-black mb-10">Interested to Work Together?</h3>
-            <p class="text-xl mb-12 opacity-80 max-w-xl mx-auto leading-relaxed">Hubungi saya untuk diskusi proyek atau sekadar bertegur sapa lewat email.</p>
-            <div class="flex flex-col md:flex-row gap-6 justify-center">
-                <a href="mailto:email@anda.com" class="bg-white text-primary px-10 py-5 rounded-full font-black text-lg hover:shadow-2xl transition">Email Me Now</a>
-                <div class="flex gap-6 justify-center items-center text-3xl">
-                    <a href="#" class="hover:opacity-70 transition"><i class="fab fa-github"></i></a>
-                    <a href="#" class="hover:opacity-70 transition"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="hover:opacity-70 transition"><i class="fab fa-instagram"></i></a>
+    <section id="contact" class="py-20 px-10">
+        <div data-aos="zoom-in" class="max-w-4xl mx-auto bg-primary rounded-[3rem] p-10 md:p-14 text-white text-center shadow-2xl relative overflow-hidden">
+            <div class="absolute -top-10 -left-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+            
+            <h3 class="text-3xl md:text-5xl font-black mb-6">Work With Giovani?</h3>
+            <p class="text-lg mb-10 opacity-90 leading-relaxed max-w-2xl mx-auto">Tersedia untuk proyek freelance atau kolaborasi teknis dalam pengembangan sistem.</p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <a href="mailto:giovani@example.com" class="bg-white text-primary px-10 py-4 rounded-full font-black text-sm uppercase tracking-widest hover:shadow-xl hover:-translate-y-1 transition active:scale-95">Send Email</a>
+                <div class="flex gap-6 text-2xl">
+                    <a href="#" class="hover:text-slate-200 transition"><i class="fab fa-github"></i></a>
+                    <a href="#" class="hover:text-slate-200 transition"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-slate-400 text-xs font-bold tracking-widest uppercase">
-        &copy; 2026 Developer Name. Build with <i class="fas fa-heart text-red-500"></i> using Tailwind.
+    <footer class="py-12 border-t border-slate-200 dark:border-slate-800 text-center">
+        <div class="text-slate-400 dark:text-gray-500 text-xs font-bold tracking-[0.3em] uppercase">
+            @2026 GIOVANI ALL RIGHTS RESERVED
+        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // Navbar Scroll Effect
+        // Navbar Scroll Logic & Color fix
         const nav = document.getElementById('main-nav');
+        const navLinks = document.querySelectorAll('.nav-link');
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
                 nav.classList.add('scrolled');
+                // Memperkuat warna link saat navbar berubah putih agar terbaca
+                navLinks.forEach(link => link.classList.replace('text-slate-600', 'text-slate-900'));
             } else {
                 nav.classList.remove('scrolled');
+                navLinks.forEach(link => link.classList.replace('text-slate-900', 'text-slate-600'));
             }
         });
 
-        // Dark Mode Logic
+        // Premium Dark Mode Logic
         const themeToggle = document.getElementById('theme-toggle');
+        
         themeToggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
 
-        // Simple Mobile Menu (Optional)
+        // Menjaga agar tema tetap sesuai pilihan terakhir atau default LIGHT
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Mobile Menu
         const menuBtn = document.getElementById('menu-btn');
         menuBtn.addEventListener('click', () => {
-            alert('Menu Link: About, Skills, Projects, Contact');
+            alert('Menu: About, Skills, Projects, Contact');
         });
     </script>
 </body>
