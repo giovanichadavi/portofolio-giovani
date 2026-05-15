@@ -39,42 +39,44 @@
         .gradient-text { background: linear-gradient(to right, #0ea5e9, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .logo-g { font-family: 'Playfair Display', serif; font-style: italic; }
 
-        /* Pembaharuan: Animasi Latar Belakang Cyber Digital Rain dibuat Jauh Lebih Jelas & Kontras */
+        /* Animasi Latar Belakang Baru: Minimalist Tech Canvas Grid (Elegan & Bersih) */
         .bg-particles {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1; overflow: hidden;
-            background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.06) 0%, transparent 85%);
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(14, 165, 233, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
         }
-        .code-stream {
-            position: absolute; top: -300px;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 14px; font-weight: 800; /* Menebalkan karakter agar lebih mantap */
-            white-space: nowrap; writing-mode: vertical-rl; text-orientation: upright;
-            background: linear-gradient(to bottom, transparent, #0ea5e9 40%, #22c55e 80%, transparent);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: fallCode 12s infinite linear;
-            opacity: 0.45; /* Menaikkan opacity agar barisan kode terlihat jelas di mode light/dark */
-            filter: drop-shadow(0 0 1px rgba(14, 165, 233, 0.3));
+        .dark .bg-particles {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
         }
-        .dark .code-stream { opacity: 0.35; filter: drop-shadow(0 0 4px rgba(14, 165, 233, 0.5)); }
-        
-        @keyframes fallCode {
-            0% { transform: translateY(0); opacity: 0; }
-            5% { opacity: 0.55; }
-            90% { opacity: 0.55; }
-            100% { transform: translateY(125vh); opacity: 0; }
+        /* Titik-titik Node Teknologi yang Berkedip Lembut */
+        .tech-node {
+            position: absolute; width: 6px; height: 6px; border-radius: 50%;
+            background-color: #0ea5e9;
+            animation: pulseNode 4s infinite ease-in-out alternate;
+            opacity: 0;
+        }
+        @keyframes pulseNode {
+            0% { transform: scale(0.5); opacity: 0; filter: blur(1px); }
+            50% { opacity: 0.4; filter: blur(0px); box-shadow: 0 0 8px #0ea5e9; }
+            100% { transform: scale(1.2); opacity: 0; filter: blur(1px); }
         }
 
-        /* Perbaikan Warna Hitam: Efek Animasi Muncul Huruf Berurutan dengan Warna Hitam */
+        /* Animasi Muncul Huruf Halus dengan Warna Hitam Solid & Jarak yang Pas */
         .letter {
             display: inline-block;
             opacity: 0;
-            transform: translateY(12px);
-            color: #000000; /* Mengubah warna menjadi hitam murni */
-            animation: revealLetter 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            transform: scale(0.95) translateY(5px);
+            color: #000000;
+            animation: revealLetter 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+        .dark .letter {
+            color: #ffffff; /* Menyesuaikan ke warna putih otomatis saat mode gelap aktif */
         }
         @keyframes revealLetter {
-            to { opacity: 1; transform: translateY(0); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         nav.scrolled {
@@ -210,9 +212,9 @@
         </div>
         
         <div class="flex flex-col items-center w-full relative z-10">
-            <!-- Menghilangkan properti gradasi warna, diganti langsung dengan kelas penataan spasi super rapat 'tracking-tighter' -->
-            <h2 id="animated-name" class="font-sans text-2xl md:text-5xl font-extrabold tracking-tighter mb-4 text-center uppercase select-none block min-h-[2rem]">
-                GIOVANI   CHADAVI   HIDAYAT
+            <!-- Menyesuaikan konten nama baru dan mengubah tracking menjadi 'tracking-wide' agar memberikan ruang spasi yang ideal dan tidak terlalu rapat -->
+            <h2 id="animated-name" class="font-sans text-2xl md:text-5xl font-extrabold tracking-wide mb-4 text-center uppercase select-none block min-h-[2rem]">
+                GIOVANI CHADAVI H.
             </h2>
             <h1 class="text-3xl md:text-7xl font-black mb-6 leading-tight text-center" data-aos="fade-up" data-aos-delay="200">
                 I am a <br> <span class="gradient-text typing-text"></span>
@@ -427,10 +429,6 @@
         </div>
     </section>
 
-    <section id="contact" class="py-20 px-6 md:px-8 text-center">
-        <!-- Section duplikat dari kode asli dipertahankan seutuhnya tanpa dikurangi -->
-    </section>
-
     <footer class="py-12 border-t border-slate-200 dark:border-slate-800 text-center px-6 relative z-10">
         <div class="text-slate-400 dark:text-slate-500 text-[10px] font-black tracking-[0.4em] uppercase text-center">
             @2026 GIOVANI ALL RIGHTS RESERVED
@@ -511,49 +509,36 @@
             }
         }
 
-        // PERBAIKAN TOTAL: Memisahkan teks nama menjadi span mandiri yang diinjeksi gaya gradasi inline agar 100% muncul stabil
+        // Memisahkan teks nama baru secara dinamis untuk efek animasi ketukan huruf satu per satu yang bersih
         const nameContainer = document.getElementById('animated-name');
-        const nameText = "GIOVANI CHADAVI HIDAYAT";
+        const nameText = "GIOVANI CHADAVI H.";
         nameContainer.innerHTML = ''; 
         
         nameText.split('').forEach((char, index) => {
             const span = document.createElement('span');
             if (char === ' ') {
                 span.innerHTML = '&nbsp;'; 
-                span.style.margin = "0 -2px"; /* Memastikan spasi tetap rapat secara visual */
+                span.style.margin = "0 4px"; /* Memberikan ruang napas antar kata agar tidak terlalu rapat */
             } else {
                 span.innerText = char;
                 span.className = 'letter';
-                span.style.animationDelay = `${index * 0.05}s`; 
+                span.style.animationDelay = `${index * 0.06}s`; 
             }
             nameContainer.appendChild(span);
         });
 
-        // Script Generator Animasi Cyber Digital Code Rain (Kerapatan Ditambah & Diperjelas)
+        // Script Generator Node Kisi-Kisi Kanvas Minimalis (Bersih & Elegan)
         const container = document.getElementById('particles-container');
-        const columnCount = Math.floor(window.innerWidth / 28); /* Jarak kolom dirapatkan agar hujan kodenya lebih ramai */
-        
-        const codeSnippets = [
-            "01", "10", "if(dev)", "auth()", "SELECT", "npm_run", 
-            "commit", "Route::", "cache", "while", "ajax", 
-            "MySQL", "Laravel", "SysAdmin", "PHP", "0xFA"
-        ];
+        const nodeCount = 15; /* Jumlah simpul cahaya diatur pas agar tidak berlebihan */
 
-        for(let i = 0; i < columnCount; i++) {
-            const stream = document.createElement('div');
-            stream.className = 'code-stream';
-            
-            let streamText = "";
-            const streamLength = Math.floor(Math.random() * 10) + 6;
-            for(let j = 0; j < streamLength; j++) {
-                streamText += codeSnippets[Math.floor(Math.random() * codeSnippets.length)] + " ";
-            }
-            
-            stream.innerText = streamText;
-            stream.style.left = (i * (100 / columnCount)) + 'vw';
-            stream.style.animationDuration = Math.random() * 5 + 7 + 's'; /* Dipercepat sedikit agar alur pergerakannya dramatis */
-            stream.style.animationDelay = '-' + (Math.random() * 12) + 's'; 
-            container.appendChild(stream);
+        for(let i = 0; i < nodeCount; i++) {
+            const node = document.createElement('div');
+            node.className = 'tech-node';
+            node.style.left = Math.random() * 100 + 'vw';
+            node.style.top = Math.random() * 100 + 'vh';
+            node.style.animationDuration = Math.random() * 3 + 3 + 's';
+            node.style.animationDelay = '-' + (Math.random() * 5) + 's'; 
+            container.appendChild(node);
         }
     </script>
 </body>
