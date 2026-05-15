@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giovani Portofolio</title>
+    <title>G | Giovani Portofolio</title>
     
-    <link rel="icon" type="image/jpeg" href="profil.jpg">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 font-family=%22serif%22 font-style=%22italic%22 font-weight=%22bold%22 fill=%22%230ea5e9%22>G.</text></svg>">
     
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,900&family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
     
@@ -35,10 +35,8 @@
         html { scroll-behavior: smooth; }
         .gradient-text { background: linear-gradient(to right, #0ea5e9, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* Logo G Aesthetic */
         .logo-g { font-family: 'Playfair Display', serif; font-style: italic; }
 
-        /* Navbar Scrolled Effect */
         nav.scrolled {
             padding-top: 0.75rem;
             padding-bottom: 0.75rem;
@@ -55,14 +53,12 @@
             nav.scrolled { width: 92%; left: 4%; }
         }
 
-        /* Mobile Menu Dropdown Animation */
         #mobile-dropdown {
             transform: translateY(-100%);
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         #mobile-dropdown.active { transform: translateY(0); }
 
-        /* Animasi Typing */
         .typing-text::after {
             content: "";
             animation: typing 4s infinite;
@@ -73,7 +69,6 @@
             66% { content: "Tech Enthusiast"; }
         }
 
-        /* Dark Mode Toggle */
         .toggle-label {
             width: 46px; height: 24px;
             background-color: #334155;
@@ -96,7 +91,8 @@
         <div class="logo-g text-4xl font-black gradient-text">G.</div>
         
         <div class="hidden md:flex gap-10 items-center font-bold text-xs uppercase tracking-widest">
-            <a href="#about" class="nav-link text-slate-600 dark:text-slate-300 hover:text-primary transition">About</a>
+            <a href="#home" class="nav-link text-slate-600 dark:text-slate-300 hover:text-primary transition">Home</a>
+            <a href="#carrier" class="nav-link text-slate-600 dark:text-slate-300 hover:text-primary transition">Carrier</a>
             <a href="#skills" class="nav-link text-slate-600 dark:text-slate-300 hover:text-primary transition">Skills</a>
             <a href="#projects" class="nav-link text-slate-600 dark:text-slate-300 hover:text-primary transition">Projects</a>
             <a href="#contact" class="nav-link text-slate-600 dark:text-slate-300 hover:text-primary transition">Contact</a>
@@ -115,7 +111,8 @@
 
     <div id="mobile-dropdown" class="fixed top-0 left-0 w-full bg-white dark:bg-dark-bg z-[90] shadow-2xl md:hidden pt-24 pb-10 px-8 border-b dark:border-slate-800">
         <div class="flex flex-col gap-6 text-center">
-            <a href="#about" class="mobile-link text-xl font-bold py-2">About</a>
+            <a href="#home" class="mobile-link text-xl font-bold py-2">Home</a>
+            <a href="#carrier" class="mobile-link text-xl font-bold py-2">Carrier</a>
             <a href="#skills" class="mobile-link text-xl font-bold py-2">Skills</a>
             <a href="#projects" class="mobile-link text-xl font-bold py-2">Projects</a>
             <a href="#contact" class="mobile-link text-xl font-bold py-2">Contact</a>
@@ -131,25 +128,47 @@
         </div>
     </div>
 
-    <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-20">
-        <div data-aos="zoom-in" class="mb-8 relative">
-            <div class="w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-primary overflow-hidden shadow-2xl mx-auto">
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-24">
+        <div data-aos="zoom-in" class="mb-10 relative">
+            <div class="w-44 h-44 md:w-56 md:h-56 rounded-full border-4 border-primary overflow-hidden shadow-2xl mx-auto">
                 <img src="profil.jpg" alt="Giovani Profile" class="w-full h-full object-cover">
             </div>
-            <div class="absolute -bottom-2 -right-2 bg-green-500 w-6 h-6 rounded-full border-4 border-dark-bg"></div>
+            <div class="absolute bottom-2 right-4 bg-green-500 w-7 h-7 rounded-full border-4 border-white dark:border-dark-bg"></div>
         </div>
         
-        <h2 data-aos="fade-up" class="text-sm font-bold uppercase tracking-[0.5em] text-primary mb-4">Software Architect</h2>
-        <h1 data-aos="fade-up" data-aos-delay="200" class="text-4xl md:text-7xl font-black mb-6 leading-tight">
-            I am a <br> <span class="gradient-text typing-text"></span>
-        </h1>
-        <p data-aos="fade-up" data-aos-delay="400" class="max-w-2xl text-slate-500 dark:text-slate-400 text-lg mb-12 leading-relaxed">
-            Spesialisasi dalam pengembangan sistem backend menggunakan Laravel dan manajemen server Linux yang optimal.
-        </p>
+        <div class="flex flex-col items-center">
+            <h2 data-aos="fade-up" class="text-sm font-bold uppercase tracking-[0.5em] text-primary mb-4 text-center">Giovani's Professional Space</h2>
+            <h1 data-aos="fade-up" data-aos-delay="200" class="text-4xl md:text-7xl font-black mb-6 leading-tight text-center">
+                I am a <br> <span class="gradient-text typing-text"></span>
+            </h1>
+            <p data-aos="fade-up" data-aos-delay="400" class="max-w-2xl text-slate-500 dark:text-slate-400 text-lg mb-12 leading-relaxed text-center">
+                Berfokus pada arsitektur perangkat lunak yang skalabel dan manajemen infrastruktur server yang aman.
+            </p>
+        </div>
         
         <div data-aos="fade-up" data-aos-delay="600" class="flex gap-4">
             <a href="#projects" class="bg-primary text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-primary/30 transition">My Projects</a>
-            <a href="#contact" class="border-2 border-slate-300 dark:border-slate-700 px-8 py-4 rounded-full font-bold hover:border-primary transition">Contact</a>
+            <a href="#contact" class="border-2 border-slate-300 dark:border-slate-700 px-8 py-4 rounded-full font-bold hover:border-primary transition">Contact Me</a>
+        </div>
+    </section>
+
+    <section id="carrier" class="py-32 px-10 bg-slate-100 dark:bg-slate-800/30">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6">Professional Carrier</h3>
+            <div class="space-y-12">
+                <div data-aos="fade-left" class="relative pl-8 border-l-2 border-primary/30">
+                    <div class="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-1"></div>
+                    <h4 class="text-xl font-bold">Software Developer & SysAdmin</h4>
+                    <p class="text-primary font-bold text-sm mb-2">2024 - Present</p>
+                    <p class="text-slate-500 dark:text-slate-400 max-w-3xl">Mengelola aset digital, server lingkungan "Danumtaka", serta mengembangkan modul manajemen user dan audit risiko berbasis Laravel.</p>
+                </div>
+                <div data-aos="fade-left" data-aos-delay="200" class="relative pl-8 border-l-2 border-primary/30">
+                    <div class="absolute w-4 h-4 bg-slate-300 rounded-full -left-[9px] top-1"></div>
+                    <h4 class="text-xl font-bold">Risk Management System Architect</h4>
+                    <p class="text-primary font-bold text-sm mb-2">2024 (Project Based)</p>
+                    <p class="text-slate-500 dark:text-slate-400 max-w-3xl">Mendevelop "Risk Register Report" untuk divisi administratif (TRA) dengan fitur tracking aktivitas data secara real-time.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -187,7 +206,7 @@
                     </div>
                     <div class="p-10">
                         <h4 class="text-2xl font-black mb-4">Risk Audit Platform</h4>
-                        <p class="text-slate-500 dark:text-slate-400 mb-6">Sistem audit manajemen risiko berbasis web untuk skalabilitas perusahaan.</p>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6">Sistem manajemen risiko untuk Divisi TRA dengan kemampuan user modification logging.</p>
                         <span class="text-primary font-bold text-xs uppercase tracking-tighter border border-primary/30 px-4 py-1 rounded-full">Laravel & MySQL</span>
                     </div>
                 </div>
@@ -196,9 +215,9 @@
                         <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
                     <div class="p-10">
-                        <h4 class="text-2xl font-black mb-4">Server Sentinel</h4>
-                        <p class="text-slate-500 dark:text-slate-400 mb-6">Monitoring alat bantu sysadmin untuk mengawasi uptime dan security server.</p>
-                        <span class="text-primary font-bold text-xs uppercase tracking-tighter border border-primary/30 px-4 py-1 rounded-full">PHP & Linux Script</span>
+                        <h4 class="text-2xl font-black mb-4">Danumtaka Security</h4>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6">Optimasi keamanan server dan perbaikan permission log untuk kestabilan domain safety.</p>
+                        <span class="text-primary font-bold text-xs uppercase tracking-tighter border border-primary/30 px-4 py-1 rounded-full">Server Administration</span>
                     </div>
                 </div>
             </div>
@@ -208,11 +227,11 @@
     <section id="contact" class="py-20 px-8">
         <div data-aos="zoom-in" class="max-w-3xl mx-auto bg-primary rounded-[2.5rem] p-10 md:p-14 text-white text-center shadow-2xl relative overflow-hidden">
             <div class="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
-            <h3 class="text-3xl md:text-5xl font-black mb-6 leading-tight">Ready to collaborate?</h3>
-            <p class="text-lg mb-10 opacity-90 max-w-xl mx-auto italic">"Membangun kode adalah hobi, mengamankan server adalah dedikasi."</p>
+            <h3 class="text-3xl md:text-5xl font-black mb-6 leading-tight text-white">Let's Connect</h3>
+            <p class="text-lg mb-10 opacity-90 max-w-xl mx-auto text-white italic">"Precision in code, excellence in server stability."</p>
             <div class="flex flex-wrap gap-6 justify-center items-center">
-                <a href="mailto:giovani@example.com" class="bg-white text-primary px-10 py-4 rounded-full font-black text-sm uppercase tracking-widest hover:scale-105 transition active:scale-95">Hire Me</a>
-                <div class="flex gap-6 text-2xl">
+                <a href="mailto:giovani@example.com" class="bg-white text-primary px-10 py-4 rounded-full font-black text-sm uppercase tracking-widest hover:scale-105 transition active:scale-95 shadow-lg">Hire Me</a>
+                <div class="flex gap-6 text-2xl text-white">
                     <a href="#" class="hover:opacity-70 transition"><i class="fab fa-github"></i></a>
                     <a href="#" class="hover:opacity-70 transition"><i class="fab fa-linkedin"></i></a>
                 </div>
@@ -230,14 +249,12 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // Navbar Scroll
         const nav = document.getElementById('main-nav');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) { nav.classList.add('scrolled'); } 
             else { nav.classList.remove('scrolled'); }
         });
 
-        // Mobile Menu Dropdown Logic
         const hamburger = document.getElementById('hamburger-btn');
         const dropdown = document.getElementById('mobile-dropdown');
         const icon = document.getElementById('menu-icon');
@@ -256,7 +273,6 @@
             });
         });
 
-        // Theme Toggle Logic
         const toggle = document.getElementById('theme-toggle');
         const toggleMobile = document.getElementById('theme-toggle-mobile');
         
@@ -269,7 +285,6 @@
         toggle.addEventListener('click', changeTheme);
         toggleMobile.addEventListener('click', changeTheme);
 
-        // Force Light Mode on first load
         if (!localStorage.getItem('theme')) {
             localStorage.setItem('theme', 'light');
             document.documentElement.classList.remove('dark');
