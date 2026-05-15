@@ -84,6 +84,19 @@
         /* Custom style untuk Swiper Slider */
         .swiper-pagination-bullet-active { background: #0ea5e9 !important; }
         
+        /* Custom tombol navigasi Swiper agar selaras dengan tema portfolio */
+        .swiper-button-next::after, .swiper-button-prev::after { font-size: 1.25rem !important; font-weight: bold; }
+        .swiper-button-next, .swiper-button-prev { 
+            color: #ffffff !important; 
+            background: #0ea5e9; 
+            width: 45px !important; 
+            height: 45px !important; 
+            border-radius: 50%; 
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+            transition: all 0.3s ease;
+        }
+        .swiper-button-next:hover, .swiper-button-prev:hover { background: #0284c7; transform: scale(1.05); }
+        
         /* Animasi delay untuk teks Let's Connect bergerak 1 per 1 */
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.2s; }
@@ -149,24 +162,24 @@
     </div>
 
     <section id="home" class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-24 overflow-hidden">
-        <div data-aos="zoom-in" class="mb-10 relative">
-            <div onclick="openLightbox()" class="w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-primary overflow-hidden shadow-2xl mx-auto cursor-zoom-in group">
+        <div class="mb-10 relative" data-aos="zoom-in">
+            <div class="w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-primary overflow-hidden shadow-2xl mx-auto cursor-zoom-in group" onclick="openLightbox()">
                 <img src="profil.jpg" alt="Giovani Profile" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
             </div>
             <div class="absolute bottom-2 right-4 bg-green-500 w-7 h-7 rounded-full border-4 border-white dark:border-dark-bg"></div>
         </div>
         
         <div class="flex flex-col items-center w-full">
-            <h2 data-aos="fade-up" class="text-xs md:text-sm font-bold uppercase tracking-[0.5em] text-primary mb-4 text-center">Giovani's Professional Space</h2>
-            <h1 data-aos="fade-up" data-aos-delay="200" class="text-3xl md:text-7xl font-black mb-6 leading-tight text-center">
+            <h2 class="text-xs md:text-sm font-bold uppercase tracking-[0.5em] text-primary mb-4 text-center" data-aos="fade-up">Giovani's Professional Space</h2>
+            <h1 class="text-3xl md:text-7xl font-black mb-6 leading-tight text-center" data-aos="fade-up" data-aos-delay="200">
                 I am a <br> <span class="gradient-text typing-text"></span>
             </h1>
-            <p data-aos="fade-up" data-aos-delay="400" class="max-w-2xl text-slate-500 dark:text-slate-400 text-base md:text-lg mb-12 leading-relaxed text-center">
+            <p class="max-w-2xl text-slate-500 dark:text-slate-400 text-base md:text-lg mb-12 leading-relaxed text-center" data-aos="fade-up" data-aos-delay="400">
                 Spesialisasi dalam pengembangan sistem backend menggunakan Laravel dan manajemen server Linux yang optimal.
             </p>
         </div>
         
-        <div data-aos="fade-up" data-aos-delay="600" class="flex flex-wrap justify-center gap-4">
+        <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="600">
             <a href="#projects" class="btn-animate bg-primary text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold shadow-lg transition">My Projects</a>
             <a href="#contact" class="btn-animate border-2 border-slate-300 dark:border-slate-700 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold hover:border-primary transition">Contact Me</a>
         </div>
@@ -174,9 +187,9 @@
 
     <section id="carrier" class="py-24 md:py-32 px-6 md:px-10 bg-slate-100 dark:bg-slate-800/30 overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <h3 data-aos="fade-down" class="text-2xl md:text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6">Professional Carrier</h3>
+            <h3 class="text-2xl md:text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6" data-aos="fade-down">Professional Carrier</h3>
             <div class="space-y-16 text-left">
-                <div data-aos="fade-up" class="relative pl-8 md:pl-12 border-l-2 border-primary/30 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                <div class="relative pl-8 md:pl-12 border-l-2 border-primary/30 flex flex-col md:flex-row gap-6 md:gap-8 items-start" data-aos="fade-up">
                     <div class="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-1"></div>
                     <div class="carrier-img-box w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-md p-2 transition-transform duration-300">
                         <img src="danumtaka.png" class="w-full h-full object-contain transition-all duration-300" alt="Danum Taka">
@@ -188,7 +201,7 @@
                         <p class="text-slate-500 dark:text-slate-400 max-w-3xl text-sm md:text-base leading-relaxed">Bertanggung jawab dalam pengelolaan infrastruktur IT, pemeliharaan sistem informasi, dan optimalisasi jaringan internal perusahaan.</p>
                     </div>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="200" class="relative pl-8 md:pl-12 border-l-2 border-primary/30 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                <div class="relative pl-8 md:pl-12 border-l-2 border-primary/30 flex flex-col md:flex-row gap-6 md:gap-8 items-start" data-aos="fade-up" data-aos-delay="200">
                     <div class="absolute w-4 h-4 bg-slate-300 rounded-full -left-[9px] top-1"></div>
                     <div class="carrier-img-box w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-md p-2 transition-transform duration-300">
                         <img src="kedaireka.png" class="w-full h-full object-contain transition-all duration-300" alt="Kedaireka">
@@ -206,21 +219,21 @@
 
     <section id="skills" class="py-24 md:py-32 px-6 md:px-10 bg-white dark:bg-slate-900/50">
         <div class="max-w-7xl mx-auto">
-            <h3 data-aos="fade-right" class="text-2xl md:text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6">Technical Skills</h3>
+            <h3 class="text-2xl md:text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6" data-aos="fade-right">Technical Skills</h3>
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-                <div data-aos="zoom-in-up" class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700">
+                <div class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up">
                     <i class="fab fa-laravel text-4xl md:text-5xl text-red-500 mb-4 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">Laravel</h4>
                 </div>
-                <div data-aos="zoom-in-up" data-aos-delay="100" class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700">
+                <div class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="100">
                     <i class="fas fa-server text-4xl md:text-5xl text-blue-500 mb-4 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">SysAdmin</h4>
                 </div>
-                <div data-aos="zoom-in-up" data-aos-delay="200" class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700">
+                <div class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="200">
                     <i class="fas fa-database text-4xl md:text-5xl text-yellow-500 mb-4 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">MySQL</h4>
                 </div>
-                <div data-aos="zoom-in-up" data-aos-delay="300" class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700">
+                <div class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="300">
                     <i class="fas fa-shield-halved text-4xl md:text-5xl text-green-500 mb-4 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">CyberSec</h4>
                 </div>
@@ -228,17 +241,17 @@
         </div>
     </section>
 
-    <section id="projects" class="py-12 md:py-20 px-6 md:px-10 overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <h3 data-aos="fade-down" class="text-2xl md:text-3xl font-black mb-12 uppercase border-l-8 border-primary pl-6">Latest Projects</h3>
+    <section id="projects" class="py-12 md:py-20 px-6 md:px-10 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto relative">
+            <h3 class="text-2xl md:text-3xl font-black mb-12 uppercase border-l-8 border-primary pl-6" data-aos="fade-down">Latest Projects</h3>
             
             <!-- Swiper Slider Kontainer Utama (Menampilkan 2 project di desktop, sisanya berlanjut ke kanan) -->
-            <div class="swiper projectSwiper pb-12">
+            <div class="swiper projectSwiper pb-12 relative px-2">
                 <div class="swiper-wrapper">
                     
                     <!-- PROJECT 1 -->
                     <div class="swiper-slide h-auto flex flex-col">
-                        <div data-aos="fade-up" class="group rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl border dark:border-slate-700 flex flex-col h-full">
+                        <div class="group rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl border dark:border-slate-700 flex flex-col h-full" data-aos="fade-up">
                             <a href="https://projectptpn4.vercel.app" target="_blank" class="h-48 md:h-64 overflow-hidden">
                                 <img src="simptpn.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="SIMPTPN Project">
                             </a>
@@ -255,7 +268,7 @@
                     
                     <!-- PROJECT 2 -->
                     <div class="swiper-slide h-auto flex flex-col">
-                        <div data-aos="fade-up" data-aos-delay="100" class="group rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl border dark:border-slate-700 flex flex-col text-left h-full">
+                        <div class="group rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl border dark:border-slate-700 flex flex-col text-left h-full" data-aos="fade-up" data-aos-delay="100">
                             <div class="h-48 md:h-64 overflow-hidden text-left">
                                 <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                             </div>
@@ -269,7 +282,7 @@
 
                     <!-- PROJECT 3 (Berada di sebelah kanan Server Sentinel) -->
                     <div class="swiper-slide h-auto flex flex-col">
-                        <div data-aos="fade-up" data-aos-delay="200" class="group rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl border dark:border-slate-700 flex flex-col text-left h-full">
+                        <div class="group rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl border dark:border-slate-700 flex flex-col text-left h-full" data-aos="fade-up" data-aos-delay="200">
                             <div class="h-48 md:h-64 overflow-hidden text-left">
                                 <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                             </div>
@@ -310,6 +323,11 @@
                     </div>
 
                 </div>
+
+                <!-- Tombol Navigasi < > Untuk Menggeser Slider -->
+                <div class="swiper-button-prev hidden md:flex !left-0"></div>
+                <div class="swiper-button-next hidden md:flex !right-0"></div>
+
                 <!-- Indikator Navigasi Slider -->
                 <div class="swiper-pagination mt-10 static"></div>
             </div>
@@ -318,9 +336,9 @@
 
     <section id="education" class="py-24 md:py-32 px-6 md:px-10 bg-slate-50 dark:bg-slate-900 overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <h3 data-aos="fade-down" class="text-2xl md:text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6">Education</h3>
+            <h3 class="text-2xl md:text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6" data-aos="fade-down">Education</h3>
             <div class="space-y-12">
-                <div data-aos="fade-up" class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] shadow-xl border dark:border-slate-700 flex flex-col md:flex-row items-center gap-8 group">
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] shadow-xl border dark:border-slate-700 flex flex-col md:flex-row items-center gap-8 group" data-aos="fade-up">
                     <div class="carrier-img-box w-32 h-32 flex-shrink-0 p-2">
                         <img src="unmul.png" class="w-full h-full object-contain transition-all duration-300" alt="Mulawarman University">
                     </div>
@@ -339,7 +357,7 @@
 
     <section id="contact" class="py-20 px-6 md:px-8 text-center">
         <!-- Card Let's Connect menggunakan kelas .btn-animate milik Anda agar bisa melayang saat di-hover -->
-        <div data-aos="zoom-in" class="btn-animate max-w-3xl mx-auto bg-primary rounded-[2rem] md:rounded-[2.5rem] p-8 md:p-14 text-white text-center shadow-2xl relative overflow-hidden flex flex-col items-center cursor-default">
+        <div class="btn-animate max-w-3xl mx-auto bg-primary rounded-[2rem] md:rounded-[2.5rem] p-8 md:p-14 text-white text-center shadow-2xl relative overflow-hidden flex flex-col items-center cursor-default" data-aos="zoom-in">
             <div class="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
             
             <!-- Tulisan Let's Connect dipecah per-huruf menggunakan animasi pulse beruntun -->
@@ -385,7 +403,7 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // Inisialisasi Swiper Slider langsung pada kontainer utama Latest Projects
+        // Inisialisasi Swiper Slider langsung pada kontainer utama Latest Projects dengan tombol navigasi
         const swiper = new Swiper('.projectSwiper', {
             slidesPerView: 1,
             spaceBetween: 20,
@@ -394,9 +412,13 @@
                 el: '.swiper-pagination',
                 clickable: true,
             },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
             breakpoints: {
                 768: { slidesPerView: 1, spaceBetween: 20 },
-                1024: { slidesPerView: 2, spaceBetween: 30 } // Tepat menampilkan 2 item di desktop, sisa item berlanjut ke kanan
+                1024: { slidesPerView: 2, spaceBetween: 30 } // Menampilkan 2 item di desktop, sisa item berlanjut ke kanan
             }
         });
 
