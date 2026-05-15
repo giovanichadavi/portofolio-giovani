@@ -1,177 +1,204 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giovani | Portfolio</title>
+    <title>Software Developer Portfolio</title>
+    
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/606/606259.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#0ea5e9',
+                        'dark-bg': '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #c084fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .blob { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0,0,0,0) 70%); filter: blur(40px); z-index: -1; }
+        html { scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
+        .gradient-text { background: linear-gradient(to right, #0ea5e9, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Navbar Scrolled Effect */
+        nav.scrolled {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(12px);
+            border-radius: 9999px;
+            width: 90%;
+            left: 5%;
+            top: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            nav.scrolled { width: 95%; left: 2.5%; }
+        }
     </style>
 </head>
-<body class="bg-[#0f172a] text-slate-200 antialiased overflow-x-hidden">
+<body class="bg-slate-50 dark:bg-dark-bg text-slate-800 dark:text-slate-100 transition-colors duration-300">
 
-    <!-- Blobs Decoration -->
-    <div class="blob top-[-10%] left-[-10%]"></div>
-    <div class="blob bottom-[-10%] right-[-10%]"></div>
-
-    <!-- Navigation -->
-    <nav class="fixed w-full top-0 z-50 glass">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-xl font-extrabold tracking-tighter gradient-text">GIOVANI</span>
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-blue-400 transition">About</a>
-                <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
-                <a href="#skills" class="hover:text-blue-400 transition">Expertise</a>
-                <a href="#contact" class="text-blue-400 border border-blue-400/30 px-4 py-1.5 rounded-full hover:bg-blue-400/10 transition">Hire Me</a>
-            </div>
+    <nav id="main-nav" class="fixed top-0 w-full z-50 transition-all duration-300 py-6 px-10 flex justify-between items-center">
+        <div class="text-2xl font-black gradient-text tracking-tighter">DEV.PORTFOLIO</div>
+        
+        <div class="hidden md:flex gap-8 items-center font-bold text-xs uppercase tracking-widest">
+            <a href="#about" class="hover:text-primary transition">About</a>
+            <a href="#skills" class="hover:text-primary transition">Skills</a>
+            <a href="#projects" class="hover:text-primary transition">Projects</a>
+            <a href="#contact" class="hover:text-primary transition">Contact</a>
+            
+            <button id="theme-toggle" class="p-2 bg-slate-200 dark:bg-slate-800 rounded-full text-lg">
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+            </button>
         </div>
+        
+        <button class="md:hidden text-2xl" id="menu-btn"><i class="fas fa-bars"></i></button>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="pt-40 pb-20 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <div class="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold mb-6 tracking-widest uppercase">
-                Available for New Projects
+    <section class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-20">
+        <div data-aos="zoom-in" class="mb-6 relative">
+            <div class="w-32 h-32 md:w-44 md:h-44 rounded-full border-4 border-primary overflow-hidden shadow-2xl mx-auto">
+                <img src="https://via.placeholder.com/300" alt="Profile" class="w-full h-full object-cover">
             </div>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight leading-tight">
-                Backend Architect & <br><span class="gradient-text">Systems Security.</span>
-            </h1>
-            <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-                Saya membangun aplikasi web yang kompleks dengan Laravel dan mengamankan infrastruktur server melalui audit keamanan tingkat lanjut.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-blue-600/20 transition-all transform hover:-translate-y-1">
-                    Lihat Portofolio Proyek
-                </a>
-                <a href="#contact" class="glass text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/5 transition-all">
-                    Hubungi Saya
-                </a>
+            <div class="absolute -bottom-2 -right-2 bg-green-500 w-6 h-6 rounded-full border-4 border-dark-bg"></div>
+        </div>
+        
+        <h2 data-aos="fade-up" class="text-sm font-bold uppercase tracking-[0.5em] text-primary mb-4">Hello, I am a</h2>
+        <h1 data-aos="fade-up" data-aos-delay="200" class="text-4xl md:text-7xl font-black mb-6 leading-tight">
+            Software Developer & <br> <span class="gradient-text">System Administrator</span>
+        </h1>
+        <p data-aos="fade-up" data-aos-delay="400" class="max-w-2xl text-slate-500 dark:text-slate-400 text-lg mb-10 leading-relaxed">
+            Berpengalaman dalam membangun aplikasi web menggunakan Laravel dan mengelola infrastruktur server dengan keamanan tingkat tinggi.
+        </p>
+        
+        <div data-aos="fade-up" data-aos-delay="600" class="flex gap-4">
+            <a href="#projects" class="bg-primary text-white px-8 py-4 rounded-full font-bold shadow-lg hover:bg-opacity-90 transition">View Projects</a>
+            <a href="#contact" class="border-2 border-slate-300 dark:border-slate-700 px-8 py-4 rounded-full font-bold hover:border-primary transition">Contact Me</a>
+        </div>
+    </section>
+
+    <section id="skills" class="py-32 px-10 bg-white dark:bg-slate-900/50">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6">Technical Skills</h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div data-aos="flip-up" class="p-8 rounded-3xl bg-slate-100 dark:bg-slate-800 text-center hover:shadow-2xl transition group">
+                    <i class="fab fa-laravel text-5xl text-red-500 mb-4 group-hover:scale-110 transition"></i>
+                    <h4 class="font-bold">PHP / Laravel</h4>
+                </div>
+                <div data-aos="flip-up" data-aos-delay="100" class="p-8 rounded-3xl bg-slate-100 dark:bg-slate-800 text-center hover:shadow-2xl transition group">
+                    <i class="fas fa-server text-5xl text-blue-500 mb-4 group-hover:scale-110 transition"></i>
+                    <h4 class="font-bold">System Admin</h4>
+                </div>
+                <div data-aos="flip-up" data-aos-delay="200" class="p-8 rounded-3xl bg-slate-100 dark:bg-slate-800 text-center hover:shadow-2xl transition group">
+                    <i class="fas fa-database text-5xl text-yellow-500 mb-4 group-hover:scale-110 transition"></i>
+                    <h4 class="font-bold">MySQL / SQL</h4>
+                </div>
+                <div data-aos="flip-up" data-aos-delay="300" class="p-8 rounded-3xl bg-slate-100 dark:bg-slate-800 text-center hover:shadow-2xl transition group">
+                    <i class="fas fa-shield-halved text-5xl text-green-500 mb-4 group-hover:scale-110 transition"></i>
+                    <h4 class="font-bold">Cyber Security</h4>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Grid -->
-    <section id="projects" class="py-24 px-6">
+    <section id="projects" class="py-32 px-10">
         <div class="max-w-7xl mx-auto">
             <div class="flex justify-between items-end mb-16">
                 <div>
-                    <h2 class="text-3xl font-bold text-white mb-2">Featured Projects</h2>
-                    <p class="text-slate-400 text-sm">Hasil kurasi pekerjaan terbaik saya dalam pengembangan sistem.</p>
+                    <h3 class="text-3xl font-black uppercase border-l-8 border-primary pl-6">Featured Projects</h3>
+                    <p class="text-slate-500 mt-2">Karya terbaik yang pernah saya bangun.</p>
                 </div>
-                <div class="hidden md:block h-[1px] flex-1 bg-slate-800 mx-10 mb-4"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project 1: Risk Management -->
-                <div class="group relative">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                    <div class="relative glass p-8 rounded-3xl">
-                        <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-blue-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div data-aos="fade-up" class="group rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-10">
+                        <h4 class="text-2xl font-black mb-4">Risk Management System</h4>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6">Aplikasi enterprise berbasis Laravel untuk pencatatan risiko perusahaan dengan fitur user tracking.</p>
+                        <div class="flex gap-2">
+                            <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold">Laravel</span>
+                            <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold">MySQL</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Enterprise Risk Register</h3>
-                        <p class="text-slate-400 mb-6 text-sm leading-relaxed">Sistem backend berbasis Laravel untuk mengelola daftar risiko divisi, lengkap dengan audit trail untuk melacak modifikasi data secara mendetail.</p>
-                        <div class="flex flex-wrap gap-2 mb-8 text-xs font-mono">
-                            <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded-full">Laravel 10</span>
-                            <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded-full">MySQL</span>
-                            <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded-full">AdminLTE</span>
-                        </div>
-                        <a href="#" class="text-blue-400 font-bold flex items-center group/link">
-                            Case Study <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 w-4 h-4 transition-transform group-hover/link:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </a>
                     </div>
                 </div>
-
-                <!-- Project 2: Security Audit -->
-                <div class="group relative">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                    <div class="relative glass p-8 rounded-3xl">
-                        <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 text-purple-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                <div data-aos="fade-up" data-aos-delay="200" class="group rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                    <div class="p-10">
+                        <h4 class="text-2xl font-black mb-4">Server Monitoring Dashboard</h4>
+                        <p class="text-slate-500 dark:text-slate-400 mb-6">Monitoring kesehatan server dan otomatisasi backup data untuk keamanan aset digital.</p>
+                        <div class="flex gap-2">
+                            <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold">Linux</span>
+                            <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold">PHP</span>
                         </div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Server Hardening & Audit</h3>
-                        <p class="text-slate-400 mb-6 text-sm leading-relaxed">Pengelolaan infrastruktur server Linux (Ubuntu/CentOS), konfigurasi permission folder yang aman, dan implementasi brute-force protection.</p>
-                        <div class="flex flex-wrap gap-2 mb-8 text-xs font-mono">
-                            <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded-full">Cyber Security</span>
-                            <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded-full">SysAdmin</span>
-                            <span class="bg-slate-800 text-slate-300 px-3 py-1 rounded-full">Bash</span>
-                        </div>
-                        <a href="#" class="text-purple-400 font-bold flex items-center group/link">
-                            Technical Docs <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 w-4 h-4 transition-transform group-hover/link:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-24 glass border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12">
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-4">Core Tech</h3>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></span> PHP / Laravel</li>
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></span> JavaScript / Node.js</li>
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></span> MySQL / PostgreSQL</li>
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></span> RESTful API Design</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-4">Infrastructure</h3>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3"></span> Linux Server (Ubuntu)</li>
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3"></span> Nginx / Apache</li>
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3"></span> Docker Basics</li>
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3"></span> SSH Key Management</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-4">Security</h3>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-pink-500 rounded-full mr-3"></span> Vulnerability Scanning</li>
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-pink-500 rounded-full mr-3"></span> SQL Injection Prevention</li>
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-pink-500 rounded-full mr-3"></span> Password Hashing (BCrypt)</li>
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-pink-500 rounded-full mr-3"></span> Server Hardening</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold text-white mb-4">Creative</h3>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></span> Image Upscaling</li>
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></span> Portrait Enhancement</li>
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></span> UI Customization</li>
-                        <li class="flex items-center"><span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></span> Data Visualization</li>
-                    </ul>
+    <section id="contact" class="py-32 px-10 bg-primary text-white text-center">
+        <div data-aos="zoom-in">
+            <h3 class="text-4xl md:text-6xl font-black mb-10">Interested to Work Together?</h3>
+            <p class="text-xl mb-12 opacity-80 max-w-xl mx-auto leading-relaxed">Hubungi saya untuk diskusi proyek atau sekadar bertegur sapa lewat email.</p>
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a href="mailto:email@anda.com" class="bg-white text-primary px-10 py-5 rounded-full font-black text-lg hover:shadow-2xl transition">Email Me Now</a>
+                <div class="flex gap-6 justify-center items-center text-3xl">
+                    <a href="#" class="hover:opacity-70 transition"><i class="fab fa-github"></i></a>
+                    <a href="#" class="hover:opacity-70 transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="hover:opacity-70 transition"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contact" class="py-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-white mb-6">Let's Build Something Together</h2>
-            <p class="text-slate-400 mb-10">Sedang mencari developer untuk sistem backend atau audit keamanan?</p>
-            <a href="mailto:hi@giovanichadavi.com" class="text-2xl md:text-4xl font-bold text-white hover:text-blue-400 transition-colors break-all">
-                hello@giovanichadavi.com
-            </a>
-            <div class="mt-16 flex justify-center space-x-8">
-                <a href="#" class="text-slate-500 hover:text-white transition">LinkedIn</a>
-                <a href="#" class="text-slate-500 hover:text-white transition">GitHub</a>
-                <a href="#" class="text-slate-500 hover:text-white transition">Instagram</a>
-            </div>
-            <p class="mt-12 text-slate-600 text-xs tracking-widest uppercase">
-                &copy; 2026 GIOVANI PORTFOLIO. Built with Passion.
-            </p>
-        </div>
+    <footer class="py-10 text-center text-slate-400 text-xs font-bold tracking-widest uppercase">
+        &copy; 2026 Developer Name. Build with <i class="fas fa-heart text-red-500"></i> using Tailwind.
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Navbar Scroll Effect
+        const nav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Dark Mode Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+
+        // Simple Mobile Menu (Optional)
+        const menuBtn = document.getElementById('menu-btn');
+        menuBtn.addEventListener('click', () => {
+            alert('Menu Link: About, Skills, Projects, Contact');
+        });
+    </script>
 </body>
 </html>
