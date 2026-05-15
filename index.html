@@ -52,37 +52,36 @@
                               linear-gradient(to bottom, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
         }
 
-        /* Pembaharuan: Bola Orbs Teknologi yang Jauh Lebih Jelas, Menyala & Kontras */
+        /* Pembaharuan: Animasi Kotak Matriks Berpendar (Sangat Jelas, Kontras & Futuristik) */
         .tech-node {
             position: absolute; 
-            width: 14px; 
-            height: 14px; 
-            border-radius: 50%;
-            background: linear-gradient(135deg, #0ea5e9, #22c55e);
-            animation: moveNode 10s infinite ease-in-out;
-            opacity: 0.8;
-            filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.8)) drop-shadow(0 0 20px rgba(34, 197, 94, 0.4));
-        }
-
-        /* Pembaharuan: Efek Riak Ring Detektor Ganda di Luar Lingkaran yang Sangat Kontras */
-        .tech-node::after {
-            content: ''; 
-            position: absolute; 
-            top: -18px; left: -18px; right: -18px; bottom: -18px;
-            border-radius: 50%; 
             border: 2px solid #0ea5e9;
-            animation: rippleNode 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: rgba(14, 165, 233, 0.05);
+            border-radius: 4px;
+            animation: floatCube 14s infinite linear;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.6)) drop-shadow(0 0 15px rgba(34, 197, 94, 0.3));
+        }
+        .dark .tech-node {
+            background: rgba(14, 165, 233, 0.02);
+            border-color: rgba(14, 165, 233, 0.8);
         }
 
-        @keyframes moveNode {
-            0% { transform: translateY(10vh) scale(0.7) translateX(0); opacity: 0; }
-            15% { opacity: 0.85; }
-            85% { opacity: 0.85; }
-            100% { transform: translateY(-110vh) scale(1.2) translateX(30px); opacity: 0; }
-        }
-        @keyframes rippleNode {
-            0% { transform: scale(0.4); opacity: 1; }
-            100% { transform: scale(1.4); opacity: 0; filter: blur(1px); }
+        @keyframes floatCube {
+            0% {
+                transform: translateY(105vh) translateX(0) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.85;
+            }
+            90% {
+                opacity: 0.85;
+            }
+            100% {
+                transform: translateY(-15vh) translateX(50px) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
         }
 
         /* Animasi Muncul Huruf Halus dengan Warna Hitam Solid & Jarak yang Pas */
@@ -552,19 +551,26 @@
             nameContainer.appendChild(span);
         });
 
-        // Script Generator Node Konstelasi Premium (Lebih Besar, Kontras Tinggi & Mengalir Indah)
+        // Script Generator Node Kotak Matriks Berpendar 3D Melayang (Sangat Kontras & Jelas)
         const container = document.getElementById('particles-container');
-        const nodeCount = 20; /* Mengoptimalkan jumlah orbs agar memenuhi kanvas latar belakang dengan seimbang */
+        const cubeCount = 15; /* Jumlah diatur seimbang agar performa tetap ringan namun visual sangat terlihat */
 
-        for(let i = 0; i < nodeCount; i++) {
-            const node = document.createElement('div');
-            node.className = 'tech-node';
-            node.style.left = Math.random() * 95 + 'vw';
-            node.style.bottom = (Math.random() * 90) + 'vh';
-            // Variasi kecepatan agar pergerakan multi-dimensi terlihat jelas dan hidup
-            node.style.animationDuration = (Math.random() * 4 + 8) + 's';
-            node.style.animationDelay = '-' + (Math.random() * 10) + 's'; 
-            container.appendChild(node);
+        for(let i = 0; i < cubeCount; i++) {
+            const cube = document.createElement('div');
+            cube.className = 'tech-node';
+            
+            // Variasi ukuran acak agar menciptakan efek kedalaman 3D
+            const size = Math.floor(Math.random() * 25) + 15;
+            cube.style.width = size + 'px';
+            cube.style.height = size + 'px';
+            
+            cube.style.left = Math.random() * 90 + 'vw';
+            cube.style.bottom = (Math.random() * -20) + 'vh'; // Mulai dari bawah layar agar mengalir konstan ke atas
+            
+            // Variasi durasi dan penundaan animasi agar pergerakan terlihat organik
+            cube.style.animationDuration = (Math.random() * 6 + 10) + 's';
+            cube.style.animationDelay = '-' + (Math.random() * 14) + 's'; 
+            container.appendChild(cube);
         }
     </script>
 </body>
