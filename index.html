@@ -7,7 +7,7 @@
     
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22 font-family=%22'Playfair Display', serif%22 font-style=%22italic%22 font-weight=%22900%22 fill=%22%230ea5e9%22>G.</text></svg>">
     
-    <!-- Menambahkan font 'Cinzel Decorative' dan 'Cinzel' khusus untuk nama agar terlihat lebih eksklusif dan mewah -->
+    <!-- Menjaga font bawaan tetap lengkap -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,900&family=Plus+Jakarta+Sans:wght@400;700;800&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,7 +23,7 @@
                     fontFamily: {
                         'serif': ['Playfair Display', 'serif'],
                         'sans': ['Plus Jakarta Sans', 'sans-serif'],
-                        'name': ['Cinzel', 'serif'], // Font baru untuk variasi nama yang elegan
+                        'name': ['Cinzel', 'serif'], 
                     },
                     colors: {
                         'primary': '#0ea5e9',
@@ -39,26 +39,25 @@
         .gradient-text { background: linear-gradient(to right, #0ea5e9, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .logo-g { font-family: 'Playfair Display', serif; font-style: italic; }
 
-        /* Animasi Latar Belakang Partikel yang Ditingkatkan (Lebih Terlihat & Interaktif) */
+        /* Animasi Baru Latar Belakang: Dynamic Floating Mesh Particles (Lebih Hidup & Keren) */
         .bg-particles {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1; overflow: hidden;
-            background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.06) 0%, transparent 70%);
+            background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.08) 0%, transparent 75%);
         }
         .particle {
-            position: absolute; border-radius: 50%; 
-            background: linear-gradient(135deg, rgba(14, 165, 233, 0.45), rgba(34, 197, 94, 0.35));
-            animation: moveUpAndSway 15s infinite ease-in-out;
-            filter: blur(1px);
-            box-shadow: 0 0 10px rgba(14, 165, 233, 0.2);
+            position: absolute; border-radius: 35% 65% 70% 30% / 50% 30% 70% 50%; /* Membuat bentuk partikel lebih organik/fluid tidak bulat sempurna */
+            background: linear-gradient(45deg, rgba(14, 165, 233, 0.5), rgba(34, 197, 94, 0.4));
+            animation: floatAndRotate 20s infinite ease-in-out alternate;
+            filter: blur(2px);
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.25);
         }
-        /* Efek pergerakan partikel naik ke atas dibarengi dengan goyangan (sway) ke kanan-kiri agar lebih estetik */
-        @keyframes moveUpAndSway {
-            0% { transform: translateY(110vh) translateX(0) scale(0.5); opacity: 0; }
-            10% { opacity: 0.8; }
-            50% { transform: translateY(50vh) translateX(50px) scale(1.2); opacity: 0.5; }
-            90% { opacity: 0.8; }
-            100% { transform: translateY(-10vh) translateX(-30px) scale(0.8); opacity: 0; }
+        /* Efek pergerakan partikel melayang interaktif menyebar secara acak dan berputar lembut */
+        @keyframes floatAndRotate {
+            0% { transform: translateY(0) translateX(0) rotate(0deg) scale(0.8); }
+            33% { transform: translateY(-50px) translateX(30px) rotate(120deg) scale(1.1); border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
+            66% { transform: translateY(30px) translateX(-40px) rotate(240deg) scale(0.9); border-radius: 60% 40% 60% 40% / 40% 50% 50% 60%; }
+            100% { transform: translateY(-20px) translateX(10px) rotate(360deg) scale(1); }
         }
 
         nav.scrolled {
@@ -195,8 +194,8 @@
         </div>
         
         <div class="flex flex-col items-center w-full relative z-10">
-            <!-- Mengubah kelas font menjadi font-name (Cinzel) dengan tambahan tracking-wide & font-black agar nama terlihat sangat elegan dan premium -->
-            <h2 class="font-name text-2xl md:text-4xl font-black tracking-[0.2em] text-primary mb-4 text-center uppercase drop-shadow-sm" data-aos="fade-up">GIOVANI CHADAVI HIDAYAT</h2>
+            <!-- Menyamakan font nama menjadi font-sans (Plus Jakarta Sans) seperti teks di bawahnya dengan ketebalan ekstra tebal (font-extrabold) -->
+            <h2 class="font-sans text-2xl md:text-5xl font-extrabold tracking-[0.15em] text-primary mb-4 text-center uppercase" data-aos="fade-up">GIOVANI CHADAVI HIDAYAT</h2>
             <h1 class="text-3xl md:text-7xl font-black mb-6 leading-tight text-center" data-aos="fade-up" data-aos-delay="200">
                 I am a <br> <span class="gradient-text typing-text"></span>
             </h1>
@@ -490,19 +489,20 @@
             }
         }
 
-        // Script Generator Partikel yang Dioptimalkan (Lebih bervariasi ukurannya & gerakan dinamis)
+        // Script Generator Animasi Mesh Baru (Fluid & Smooth Floating)
         const container = document.getElementById('particles-container');
-        const count = 30; // Sedikit dinaikkan agar kerapatan partikel pas
+        const count = 25; 
         for(let i=0; i<count; i++) {
             const p = document.createElement('div');
             p.className = 'particle';
-            const size = Math.random() * 12 + 6 + 'px'; // Ukuran berkisar 6px hingga 18px
+            const size = Math.random() * 40 + 20 + 'px'; // Ukuran diperbesar (20px - 60px) agar efek mesh fluid terlihat mewah
             p.style.width = size;
             p.style.height = size;
             p.style.left = Math.random() * 100 + 'vw';
-            p.style.animationDuration = Math.random() * 8 + 12 + 's'; // Variasi durasi terbang antara 12s - 20s
-            p.style.animationDelay = Math.random() * 6 + 's';
-            p.style.opacity = Math.random() * 0.5 + 0.3; // Memastikan opacity minimal 0.3 agar tetap kelihatan jernih
+            p.style.top = Math.random() * 100 + 'vh';
+            p.style.animationDuration = Math.random() * 15 + 15 + 's'; // Kecepatan melayang lambat dan halus (15s - 30s)
+            p.style.animationDelay = '-' + (Math.random() * 10) + 's'; // Pengaturan delay minus agar animasi langsung jalan rata tanpa jeda kosong di awal
+            p.style.opacity = Math.random() * 0.4 + 0.2; 
             container.appendChild(p);
         }
     </script>
