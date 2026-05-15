@@ -7,7 +7,6 @@
     
     <link class="scroll-smooth" rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22 font-family=%22'Playfair Display', serif%22 font-style=%22italic%22 font-weight=%22900%22 fill=%22%230ea5e9%22>G.</text></svg>">
     
-    <!-- Menjaga font bawaan tetap lengkap -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,900&family=Plus+Jakarta+Sans:wght@400;700;800&family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -81,12 +80,13 @@
             100% { top: 100%; }
         }
 
-        /* Animasi Muncul Huruf Halus dengan Warna Hitam Solid & Jarak yang Pas */
+        /* Animasi Muncul Huruf Halus dengan Warna Hitam Solid, Gaya Serif Italic Sesuai Gambar */
         .letter {
             display: inline-block;
             opacity: 0;
             transform: scale(0.95) translateY(5px);
             color: #000000;
+            font-style: italic;
             animation: revealLetter 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
         }
         .dark .letter {
@@ -229,8 +229,7 @@
         </div>
         
         <div class="flex flex-col items-center w-full relative z-10">
-            <!-- Menyesuaikan konten nama baru dan mengubah tracking menjadi 'tracking-wide' agar memberikan ruang spasi yang ideal dan tidak terlalu rapat -->
-            <h2 id="animated-name" class="font-sans text-2xl md:text-5xl font-extrabold tracking-wide mb-4 text-center uppercase select-none block min-h-[2rem]">
+            <h2 id="animated-name" class="font-serif text-2xl md:text-5xl font-normal tracking-wide mb-4 text-center select-none block min-h-[2rem]">
                 GIOVANI C. H.
             </h2>
             <h1 class="text-3xl md:text-7xl font-black mb-6 leading-tight text-center" data-aos="fade-up" data-aos-delay="200">
@@ -447,8 +446,7 @@
     </section>
 
     <section id="contact" class="py-20 px-6 md:px-8 text-center">
-        <!-- Section duplikat dari kode asli dipertahankan seutuhnya tanpa dikurangi -->
-    </section>
+        </section>
 
     <footer class="py-12 border-t border-slate-200 dark:border-slate-800 text-center px-6 relative z-10">
         <div class="text-slate-400 dark:text-slate-500 text-[10px] font-black tracking-[0.4em] uppercase text-center">
@@ -530,16 +528,16 @@
             }
         }
 
-        // Memisahkan teks nama baru secara dinamis untuk efek animasi ketukan huruf satu per satu yang bersih
+        // Teks nama diubah menjadi "GIOVANI C. H." 
         const nameContainer = document.getElementById('animated-name');
-        const nameText = "GIOVANI CHADAVI H.";
+        const nameText = "GIOVANI C. H.";
         nameContainer.innerHTML = ''; 
         
         nameText.split('').forEach((char, index) => {
             const span = document.createElement('span');
             if (char === ' ') {
                 span.innerHTML = '&nbsp;'; 
-                span.style.margin = "0 4px"; /* Memberikan ruang napas antar kata agar tidak terlalu rapat */
+                span.style.margin = "0 6px"; /* Sedikit melonggarkan ruang spasi antar kata agar proporsional dengan font miring */
             } else {
                 span.innerText = char;
                 span.className = 'letter';
@@ -550,28 +548,24 @@
 
         // Script Generator Jalur Garis Sirkuit Matriks (Vertikal & Laser Aliran Data)
         const container = document.getElementById('particles-container');
-        const lineCount = 14; /* Jumlah garis diatur ideal agar memenuhi layar portofolio dengan rapi */
+        const lineCount = 14; 
 
         for(let i = 0; i < lineCount; i++) {
             const line = document.createElement('div');
             line.className = 'tech-node';
             
-            // Mengatur panjang garis vertikal dan penempatan horizontal secara acak
-            const lineLength = Math.floor(Math.random() * 40) + 30; // Panjang berkisar antara 30vh hingga 70vh
+            const lineLength = Math.floor(Math.random() * 40) + 30; 
             line.style.height = lineLength + 'vh';
             line.style.left = Math.random() * 95 + 'vw';
-            line.style.top = Math.random() * 50 + 'vh'; // Menyebar secara seimbang di tengah kanvas
+            line.style.top = Math.random() * 50 + 'vh'; 
             
-            // Variasi durasi laser mengalir agar pergerakan sekuensial data stream terlihat acak dan natural
-            const streamDuration = (Math.random() * 3 + 3); // 3s hingga 6s
+            const streamDuration = (Math.random() * 3 + 3); 
             line.style.setProperty('--stream-speed', streamDuration + 's');
             
-            // Menerapkan gaya langsung ke elemen anak (efek laser) melalui inline style manipulasi animasi
             const delay = '-' + (Math.random() * 5) + 's';
             
             container.appendChild(line);
             
-            // Memodifikasi aturan style internal spesifik untuk inject delay acak pada pseudo-element ::after
             const style = document.createElement('style');
             style.innerHTML = `.tech-node:nth-child(${i+1})::after { animation-duration: ${streamDuration}s !important; animation-delay: ${delay} !important; }`;
             document.head.appendChild(style);
