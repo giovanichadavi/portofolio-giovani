@@ -52,43 +52,33 @@
                               linear-gradient(to bottom, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
         }
 
-        /* Pembaharuan: Animasi Node Quantum Statis Berdenyut (Sangat Kontras, Diam di Tempat & Jelas) */
+        /* Pembaharuan: Jalur Jalur Garis Sirkuit Server Statis (Jelas & Tegas) */
         .tech-node {
-            position: absolute; 
-            border-radius: 50%;
-            background: linear-gradient(135deg, #0ea5e9, #22c55e);
-            animation: pulseCore 3s infinite ease-in-out;
-            opacity: 0.9;
-            filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.8)) drop-shadow(0 0 20px rgba(34, 197, 94, 0.4));
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(14, 165, 233, 0.05), rgba(34, 197, 94, 0.15), rgba(14, 165, 233, 0.05));
+            overflow: hidden;
+        }
+        .dark .tech-node {
+            background: linear-gradient(to bottom, rgba(14, 165, 233, 0.02), rgba(34, 197, 94, 0.08), rgba(14, 165, 233, 0.02));
         }
 
-        /* Efek Halo Riak Radar Ganda yang Memancar Keluar Secara Konstan */
-        .tech-node::after, .tech-node::before {
-            content: ''; 
-            position: absolute; 
-            top: 0; left: 0; right: 0; bottom: 0;
-            border-radius: 50%; 
-            border: 2px solid #0ea5e9;
-            transform-origin: center;
-        }
-
+        /* Berkas Aliran Laser Neon yang Bergerak Mengalir ke Bawah Jalur Garis */
         .tech-node::after {
-            animation: rippleRadar 3s infinite cubic-bezier(0.215, 0.610, 0.355, 1);
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to bottom, transparent, #0ea5e9, #22c55e, transparent);
+            animation: dataStream 4s infinite linear;
+            filter: drop-shadow(0 0 6px #0ea5e9) drop-shadow(0 0 10px #22c55e);
         }
 
-        .tech-node::before {
-            animation: rippleRadar 3s infinite cubic-bezier(0.215, 0.610, 0.355, 1);
-            animation-delay: 1.5s;
-        }
-
-        @keyframes pulseCore {
-            0%, 100% { transform: scale(0.9); opacity: 0.7; }
-            50% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 14px rgba(14, 165, 233, 1)); }
-        }
-
-        @keyframes rippleRadar {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(4.5); opacity: 0; border-color: #22c55e; filter: blur(0.5px); }
+        @keyframes dataStream {
+            0% { top: -40%; }
+            100% { top: 100%; }
         }
 
         /* Animasi Muncul Huruf Halus dengan Warna Hitam Solid & Jarak yang Pas */
@@ -558,25 +548,33 @@
             nameContainer.appendChild(span);
         });
 
-        // Script Generator Node Quantum Statis Radar Pulse (Diam di Tempat & Berdenyut Jelas)
+        // Script Generator Jalur Garis Sirkuit Matriks (Vertikal & Laser Aliran Data)
         const container = document.getElementById('particles-container');
-        const nodeCount = 12; /* Jumlah diatur presisi agar latar belakang elegan dan tidak terlalu padat */
+        const lineCount = 14; /* Jumlah garis diatur ideal agar memenuhi layar portofolio dengan rapi */
 
-        for(let i = 0; i < nodeCount; i++) {
-            const node = document.createElement('div');
-            node.className = 'tech-node';
+        for(let i = 0; i < lineCount; i++) {
+            const line = document.createElement('div');
+            line.className = 'tech-node';
             
-            // Ukuran konstan untuk menjaga konsistensi bentuk radar
-            node.style.width = '12px';
-            node.style.height = '12px';
+            // Mengatur panjang garis vertikal dan penempatan horizontal secara acak
+            const lineLength = Math.floor(Math.random() * 40) + 30; // Panjang berkisar antara 30vh hingga 70vh
+            line.style.height = lineLength + 'vh';
+            line.style.left = Math.random() * 95 + 'vw';
+            line.style.top = Math.random() * 50 + 'vh'; // Menyebar secara seimbang di tengah kanvas
             
-            // Penempatan acak di seluruh area viewport
-            node.style.left = Math.random() * 92 + 'vw';
-            node.style.top = Math.random() * 80 + 10 + 'vh';
+            // Variasi durasi laser mengalir agar pergerakan sekuensial data stream terlihat acak dan natural
+            const streamDuration = (Math.random() * 3 + 3); // 3s hingga 6s
+            line.style.setProperty('--stream-speed', streamDuration + 's');
             
-            // Mengacak jeda animasi riak antar node agar menyebar secara alami
-            node.style.animationDelay = '-' + (Math.random() * 3) + 's'; 
-            container.appendChild(node);
+            // Menerapkan gaya langsung ke elemen anak (efek laser) melalui inline style manipulasi animasi
+            const delay = '-' + (Math.random() * 5) + 's';
+            
+            container.appendChild(line);
+            
+            // Memodifikasi aturan style internal spesifik untuk inject delay acak pada pseudo-element ::after
+            const style = document.createElement('style');
+            style.innerHTML = `.tech-node:nth-child(${i+1})::after { animation-duration: ${streamDuration}s !important; animation-delay: ${delay} !important; }`;
+            document.head.appendChild(style);
         }
     </script>
 </body>
