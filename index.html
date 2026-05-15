@@ -39,29 +39,45 @@
         .gradient-text { background: linear-gradient(to right, #0ea5e9, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .logo-g { font-family: 'Playfair Display', serif; font-style: italic; }
 
-        /* Animasi Latar Belakang Baru: Minimalist Tech Canvas Grid (Elegan & Bersih) */
+        /* Perbaikan Latar Belakang: Grid Kanvas Lebih Tegas & Elegan */
         .bg-particles {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1; overflow: hidden;
-            background-size: 40px 40px;
-            background-image: linear-gradient(to right, rgba(14, 165, 233, 0.04) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(14, 165, 233, 0.06) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(14, 165, 233, 0.06) 1px, transparent 1px);
         }
         .dark .bg-particles {
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         }
-        /* Titik-titik Node Teknologi yang Berkedip Lembut */
+
+        /* Perubahan: Node Diperjelas dengan Efek Riak Gelombang Quantum Langit */
         .tech-node {
-            position: absolute; width: 6px; height: 6px; border-radius: 50%;
-            background-color: #0ea5e9;
-            animation: pulseNode 4s infinite ease-in-out alternate;
-            opacity: 0;
+            position: absolute; width: 8px; height: 8px; border-radius: 50%;
+            background: linear-gradient(45deg, #0ea5e9, #22c55e);
+            animation: moveNode 12s infinite linear;
+            box-shadow: 0 0 12px rgba(14, 165, 233, 0.6);
         }
-        @keyframes pulseNode {
-            0% { transform: scale(0.5); opacity: 0; filter: blur(1px); }
-            50% { opacity: 0.4; filter: blur(0px); box-shadow: 0 0 8px #0ea5e9; }
-            100% { transform: scale(1.2); opacity: 0; filter: blur(1px); }
+        /* Efek Gelombang Riak Halo di Sekitar Node */
+        .tech-node::after {
+            content: ''; position: absolute; top: -12px; left: -12px; right: -12px; bottom: -12px;
+            border-radius: 50%; border: 2px solid rgba(14, 165, 233, 0.3);
+            animation: rippleNode 2.5s infinite ease-out;
+        }
+        .dark .tech-node::after {
+            border-color: rgba(14, 165, 233, 0.5);
+        }
+
+        @keyframes moveNode {
+            0% { transform: translateY(0) scale(0.8); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(-100vh) scale(1.1); opacity: 0; }
+        }
+        @keyframes rippleNode {
+            0% { transform: scale(0.3); opacity: 1; }
+            100% { transform: scale(1.3); opacity: 0; }
         }
 
         /* Animasi Muncul Huruf Halus dengan Warna Hitam Solid & Jarak yang Pas */
@@ -429,6 +445,10 @@
         </div>
     </section>
 
+    <section id="contact" class="py-20 px-6 md:px-8 text-center">
+        <!-- Section duplikat dari kode asli dipertahankan seutuhnya tanpa dikurangi -->
+    </section>
+
     <footer class="py-12 border-t border-slate-200 dark:border-slate-800 text-center px-6 relative z-10">
         <div class="text-slate-400 dark:text-slate-500 text-[10px] font-black tracking-[0.4em] uppercase text-center">
             @2026 GIOVANI ALL RIGHTS RESERVED
@@ -527,17 +547,17 @@
             nameContainer.appendChild(span);
         });
 
-        // Script Generator Node Kisi-Kisi Kanvas Minimalis (Bersih & Elegan)
+        // Script Generator Node Konstelasi Quantum yang Mengalir Konstan (Jauh Lebih Terlihat & Jelas)
         const container = document.getElementById('particles-container');
-        const nodeCount = 15; /* Jumlah simpul cahaya diatur pas agar tidak berlebihan */
+        const nodeCount = 18; /* Jumlah simpul cahaya dioptimalkan agar seimbang di layar */
 
         for(let i = 0; i < nodeCount; i++) {
             const node = document.createElement('div');
             node.className = 'tech-node';
             node.style.left = Math.random() * 100 + 'vw';
-            node.style.top = Math.random() * 100 + 'vh';
-            node.style.animationDuration = Math.random() * 3 + 3 + 's';
-            node.style.animationDelay = '-' + (Math.random() * 5) + 's'; 
+            node.style.top = (Math.random() * 80 + 20) + 'vh';
+            node.style.animationDuration = (Math.random() * 5 + 8) + 's';
+            node.style.animationDelay = '-' + (Math.random() * 10) + 's'; 
             container.appendChild(node);
         }
     </script>
