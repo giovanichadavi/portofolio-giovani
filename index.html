@@ -72,6 +72,13 @@
             opacity: 0; transition: opacity 0.3s ease;
         }
         #lightbox.active { display: flex; opacity: 1; }
+
+        .carrier-img-box:hover img { transform: scale(1.1) rotate(3deg); transition: all 0.4s ease; }
+
+        /* Animasi Tombol Tambahan */
+        .btn-animate { transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .btn-animate:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(14, 165, 233, 0.4); }
+        .btn-animate:active { transform: translateY(-2px); }
     </style>
 </head>
 <body class="bg-slate-50 dark:bg-dark-bg text-slate-800 dark:text-slate-100 transition-colors duration-300 font-sans overflow-x-hidden">
@@ -141,19 +148,19 @@
         </div>
         
         <div data-aos="fade-up" data-aos-delay="600" class="flex flex-wrap justify-center gap-4">
-            <a href="#projects" class="bg-primary text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold shadow-lg hover:shadow-primary/30 transition">My Projects</a>
-            <a href="#contact" class="border-2 border-slate-300 dark:border-slate-700 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold hover:border-primary transition">Contact Me</a>
+            <a href="#projects" class="btn-animate bg-primary text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold shadow-lg transition">My Projects</a>
+            <a href="#contact" class="btn-animate border-2 border-slate-300 dark:border-slate-700 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold hover:border-primary transition">Contact Me</a>
         </div>
     </section>
 
     <section id="carrier" class="py-24 md:py-32 px-6 md:px-10 bg-slate-100 dark:bg-slate-800/30 overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <h3 class="text-2xl md:text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6">Professional Carrier</h3>
+            <h3 data-aos="fade-down" class="text-2xl md:text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6">Professional Carrier</h3>
             <div class="space-y-16 text-left">
-                <div data-aos="fade-left" class="relative pl-8 md:pl-12 border-l-2 border-primary/30 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                <div data-aos="fade-up" class="relative pl-8 md:pl-12 border-l-2 border-primary/30 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                     <div class="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-1"></div>
-                    <div class="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-md p-2">
-                        <img src="danumtaka.png" class="w-full h-full object-contain" alt="Danum Taka">
+                    <div class="carrier-img-box w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-md p-2 transition-transform duration-300">
+                        <img src="danumtaka.png" class="w-full h-full object-contain transition-all duration-300" alt="Danum Taka">
                     </div>
                     <div>
                         <h4 class="text-lg md:text-xl font-bold">Intern Informatic Technology</h4>
@@ -162,10 +169,10 @@
                         <p class="text-slate-500 dark:text-slate-400 max-w-3xl text-sm md:text-base leading-relaxed">Bertanggung jawab dalam pengelolaan infrastruktur IT, pemeliharaan sistem informasi, dan optimalisasi jaringan internal perusahaan.</p>
                     </div>
                 </div>
-                <div data-aos="fade-left" data-aos-delay="200" class="relative pl-8 md:pl-12 border-l-2 border-primary/30 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                <div data-aos="fade-up" data-aos-delay="200" class="relative pl-8 md:pl-12 border-l-2 border-primary/30 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                     <div class="absolute w-4 h-4 bg-slate-300 rounded-full -left-[9px] top-1"></div>
-                    <div class="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-md p-2">
-                        <img src="kedaireka.png" class="w-full h-full object-contain" alt="Kedaireka">
+                    <div class="carrier-img-box w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-md p-2 transition-transform duration-300">
+                        <img src="kedaireka.png" class="w-full h-full object-contain transition-all duration-300" alt="Kedaireka">
                     </div>
                     <div>
                         <h4 class="text-lg md:text-xl font-bold">Design Specialist UMKM</h4>
@@ -180,21 +187,21 @@
 
     <section id="skills" class="py-24 md:py-32 px-6 md:px-10 bg-white dark:bg-slate-900/50">
         <div class="max-w-7xl mx-auto">
-            <h3 class="text-2xl md:text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6">Technical Skills</h3>
+            <h3 data-aos="fade-right" class="text-2xl md:text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6">Technical Skills</h3>
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-                <div data-aos="flip-up" class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700">
+                <div data-aos="zoom-in-up" class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700">
                     <i class="fab fa-laravel text-4xl md:text-5xl text-red-500 mb-4 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">Laravel</h4>
                 </div>
-                <div data-aos="flip-up" data-aos-delay="100" class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700">
+                <div data-aos="zoom-in-up" data-aos-delay="100" class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700">
                     <i class="fas fa-server text-4xl md:text-5xl text-blue-500 mb-4 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">SysAdmin</h4>
                 </div>
-                <div data-aos="flip-up" data-aos-delay="200" class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700">
+                <div data-aos="zoom-in-up" data-aos-delay="200" class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700">
                     <i class="fas fa-database text-4xl md:text-5xl text-yellow-500 mb-4 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">MySQL</h4>
                 </div>
-                <div data-aos="flip-up" data-aos-delay="300" class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700">
+                <div data-aos="zoom-in-up" data-aos-delay="300" class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700">
                     <i class="fas fa-shield-halved text-4xl md:text-5xl text-green-500 mb-4 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">CyberSec</h4>
                 </div>
@@ -202,24 +209,24 @@
         </div>
     </section>
 
-    <section id="projects" class="py-24 md:py-32 px-6 md:px-10 overflow-hidden">
+    <section id="projects" class="py-12 md:py-20 px-6 md:px-10 overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <h3 class="text-2xl md:text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6">Latest Projects</h3>
+            <h3 data-aos="fade-down" class="text-2xl md:text-3xl font-black mb-12 uppercase border-l-8 border-primary pl-6">Latest Projects</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
                 <div data-aos="fade-up" class="group rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl border dark:border-slate-700 flex flex-col">
-                    <div class="h-48 md:h-64 overflow-hidden">
+                    <a href="https://projectptpn4.vercel.app" target="_blank" class="h-48 md:h-64 overflow-hidden">
                         <img src="simptpn.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="SIMPTPN Project">
-                    </div>
+                    </a>
                     <div class="p-6 md:p-10 flex flex-col flex-grow">
                         <h4 class="text-xl md:text-2xl font-black mb-2">Manajemen Sistem PT Perkebunan Nusantara IV Regional 5</h4>
                         <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm md:text-base flex-grow">Sistem pemeliharaan lahan kelapa sawit untuk mempermudah operasional dan manajemen perusahaan secara digital.</p>
                         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                             <span class="text-primary font-bold text-[10px] md:text-xs uppercase tracking-tighter border border-primary/30 px-3 md:px-4 py-1 rounded-full">Enterprise System</span>
-                            <a href="https://projectptpn4.vercel.app" target="_blank" class="w-full sm:w-auto bg-primary text-white text-[10px] md:text-xs font-bold px-4 md:px-6 py-2 rounded-full hover:bg-opacity-90 transition shadow-md text-center">Klik Disini untuk melihat Project</a>
+                            <a href="https://projectptpn4.vercel.app" target="_blank" class="btn-animate w-full sm:w-auto bg-primary text-white text-[10px] md:text-xs font-bold px-4 md:px-6 py-2 rounded-full shadow-md text-center">Klik Disini untuk melihat Project</a>
                         </div>
                     </div>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="200" class="group rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl border dark:border-slate-700 flex flex-col">
+                <div data-aos="fade-up" data-aos-delay="200" class="group rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl border dark:border-slate-700 flex flex-col text-left">
                     <div class="h-48 md:h-64 overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
                     </div>
@@ -239,7 +246,7 @@
             <h3 class="text-2xl md:text-5xl font-black mb-6 leading-tight text-white">Let's Connect</h3>
             <p class="text-base md:text-lg mb-10 opacity-90 max-w-xl mx-auto text-white italic">"Precision in code, excellence in server stability."</p>
             <div class="flex flex-wrap gap-4 md:gap-6 justify-center items-center w-full">
-                <a href="mailto:giovani@example.com" class="w-full sm:w-auto bg-white text-primary px-8 md:px-10 py-3 md:py-4 rounded-full font-black text-xs md:text-sm uppercase tracking-widest hover:scale-105 transition shadow-lg">Hire Me</a>
+                <a href="mailto:giovani@example.com" class="btn-animate w-full sm:w-auto bg-white text-primary px-8 md:px-10 py-3 md:py-4 rounded-full font-black text-xs md:text-sm uppercase tracking-widest transition shadow-lg">Hire Me</a>
                 <div class="flex gap-6 text-2xl text-white">
                     <a href="#" class="hover:opacity-70 transition"><i class="fab fa-github"></i></a>
                     <a href="#" class="hover:opacity-70 transition"><i class="fab fa-linkedin"></i></a>
