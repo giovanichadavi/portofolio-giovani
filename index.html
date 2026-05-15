@@ -37,6 +37,21 @@
         .gradient-text { background: linear-gradient(to right, #0ea5e9, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .logo-g { font-family: 'Playfair Display', serif; font-style: italic; }
 
+        /* Animasi Latar Belakang Partikel */
+        .bg-particles {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; overflow: hidden;
+            background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.03) 0%, transparent 80%);
+        }
+        .particle {
+            position: absolute; border-radius: 50%; background: rgba(14, 165, 233, 0.2);
+            animation: move 20s infinite linear;
+        }
+        @keyframes move {
+            from { transform: translateY(100vh) scale(0); opacity: 1; }
+            to { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
         nav.scrolled {
             padding-top: 0.75rem;
             padding-bottom: 0.75rem;
@@ -160,7 +175,9 @@
         </div>
     </div>
 
-    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-6 text-center pt-24 overflow-hidden">
+    <section id="home" class="relative min-h-screen flex flex-col justify-center items-center px-6 text-center pt-24 overflow-hidden">
+        <div class="bg-particles" id="particles-container"></div>
+        
         <div class="mb-10 relative" data-aos="zoom-in">
             <div class="w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-primary overflow-hidden shadow-2xl mx-auto cursor-zoom-in group" onclick="openLightbox()">
                 <img src="profil.jpg" alt="Giovani Profile" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
@@ -168,8 +185,8 @@
             <div class="absolute bottom-2 right-4 bg-green-500 w-7 h-7 rounded-full border-4 border-white dark:border-dark-bg"></div>
         </div>
         
-        <div class="flex flex-col items-center w-full">
-            <h2 class="text-xs md:text-sm font-bold uppercase tracking-[0.5em] text-primary mb-4 text-center" data-aos="fade-up">Giovani's Professional Space</h2>
+        <div class="flex flex-col items-center w-full relative z-10">
+            <h2 class="font-serif italic text-2xl md:text-3xl font-bold tracking-widest text-primary mb-4 text-center uppercase" data-aos="fade-up">GIOVANI CHADAVI HIDAYAT</h2>
             <h1 class="text-3xl md:text-7xl font-black mb-6 leading-tight text-center" data-aos="fade-up" data-aos-delay="200">
                 I am a <br> <span class="gradient-text typing-text"></span>
             </h1>
@@ -178,7 +195,7 @@
             </p>
         </div>
         
-        <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="600">
+        <div class="flex flex-wrap justify-center gap-4 relative z-10" data-aos="fade-up" data-aos-delay="600">
             <a href="#projects" class="btn-animate bg-primary text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold shadow-lg transition">My Projects</a>
             <a href="#contact" class="btn-animate border-2 border-slate-300 dark:border-slate-700 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold hover:border-primary transition">Contact Me</a>
         </div>
@@ -295,32 +312,6 @@
                         </div>
                     </div>
 
-                    <div class="swiper-slide h-auto flex flex-col">
-                        <div class="group rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl border dark:border-slate-700 flex flex-col text-left h-full">
-                            <div class="h-48 md:h-64 overflow-hidden text-left">
-                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                            </div>
-                            <div class="p-6 md:p-10 flex flex-col flex-grow">
-                                <h4 class="text-xl md:text-2xl font-black mb-4">Water Billing Optimizer</h4>
-                                <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm md:text-base flex-grow">Aplikasi pengolahan data piutang rekening air divisi TRA untuk mempercepat kalkulasi tunggakan secara berkala.</p>
-                                <span class="w-fit text-primary font-bold text-[10px] md:text-xs uppercase tracking-tighter border border-primary/30 px-3 md:px-4 py-1 rounded-full">Database Custom Script</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide h-auto flex flex-col">
-                        <div class="group rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl border dark:border-slate-700 flex flex-col text-left h-full">
-                            <div class="h-48 md:h-64 overflow-hidden text-left">
-                                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                            </div>
-                            <div class="p-6 md:p-10 flex flex-col flex-grow">
-                                <h4 class="text-xl md:text-2xl font-black mb-4">Secure Gateway Shield</h4>
-                                <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm md:text-base flex-grow">Konfigurasi environment server terenkripsi untuk mitigasi brute force dan serangan credential stuffing.</p>
-                                <span class="w-fit text-primary font-bold text-[10px] md:text-xs uppercase tracking-tighter border border-primary/30 px-3 md:px-4 py-1 rounded-full">Linux SysAdmin Tools</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
@@ -383,7 +374,7 @@
         </div>
     </section>
 
-    <footer class="py-12 border-t border-slate-200 dark:border-slate-800 text-center px-6">
+    <footer class="py-12 border-t border-slate-200 dark:border-slate-800 text-center px-6 relative z-10">
         <div class="text-slate-400 dark:text-slate-500 text-[10px] font-black tracking-[0.4em] uppercase text-center">
             @2026 GIOVANI ALL RIGHTS RESERVED
         </div>
@@ -449,8 +440,8 @@
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         }
 
-        toggle.addEventListener('click', changeTheme);
-        toggleMobile.addEventListener('click', changeTheme);
+        if (toggle) toggle.addEventListener('click', changeTheme);
+        if (toggleMobile) toggleMobile.addEventListener('click', changeTheme);
 
         if (!localStorage.getItem('theme')) {
             localStorage.setItem('theme', 'light');
@@ -461,6 +452,22 @@
             } else {
                 document.documentElement.classList.remove('dark');
             }
+        }
+
+        // Script Partikel Generator
+        const container = document.getElementById('particles-container');
+        const count = 25;
+        for(let i=0; i<count; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            const size = Math.random() * 15 + 5 + 'px';
+            p.style.width = size;
+            p.style.height = size;
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.animationDuration = Math.random() * 10 + 10 + 's';
+            p.style.animationDelay = Math.random() * 5 + 's';
+            p.style.opacity = Math.random();
+            container.appendChild(p);
         }
     </script>
 </body>
