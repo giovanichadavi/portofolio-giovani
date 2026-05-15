@@ -39,25 +39,39 @@
         .gradient-text { background: linear-gradient(to right, #0ea5e9, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .logo-g { font-family: 'Playfair Display', serif; font-style: italic; }
 
-        /* Animasi Baru Latar Belakang: Dynamic Floating Mesh Particles (Lebih Hidup & Keren) */
+        /* Animasi Latar Belakang Baru: Cyber Digital Code Streams */
         .bg-particles {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1; overflow: hidden;
-            background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.08) 0%, transparent 75%);
+            background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.04) 0%, transparent 85%);
         }
-        .particle {
-            position: absolute; border-radius: 35% 65% 70% 30% / 50% 30% 70% 50%; /* Membuat bentuk partikel lebih organik/fluid tidak bulat sempurna */
-            background: linear-gradient(45deg, rgba(14, 165, 233, 0.5), rgba(34, 197, 94, 0.4));
-            animation: floatAndRotate 20s infinite ease-in-out alternate;
-            filter: blur(2px);
-            box-shadow: 0 0 20px rgba(14, 165, 233, 0.25);
+        .code-stream {
+            position: absolute; top: -200px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 13px; font-weight: bold;
+            white-space: nowrap; writing-mode: vertical-rl; text-orientation: upright;
+            background: linear-gradient(to bottom, transparent, #0ea5e9, #22c55e, transparent);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: fallCode 14s infinite linear;
+            opacity: 0.25; filter: blur(0.5px);
         }
-        /* Efek pergerakan partikel melayang interaktif menyebar secara acak dan berputar lembut */
-        @keyframes floatAndRotate {
-            0% { transform: translateY(0) translateX(0) rotate(0deg) scale(0.8); }
-            33% { transform: translateY(-50px) translateX(30px) rotate(120deg) scale(1.1); border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%; }
-            66% { transform: translateY(30px) translateX(-40px) rotate(240deg) scale(0.9); border-radius: 60% 40% 60% 40% / 40% 50% 50% 60%; }
-            100% { transform: translateY(-20px) translateX(10px) rotate(360deg) scale(1); }
+        .dark .code-stream { opacity: 0.18; }
+        @keyframes fallCode {
+            0% { transform: translateY(0); opacity: 0; }
+            10% { opacity: 0.35; }
+            90% { opacity: 0.35; }
+            100% { transform: translateY(120vh); opacity: 0; }
+        }
+
+        /* Animasi Muncul Huruf Nama Satu Per Satu */
+        .letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: revealLetter 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes revealLetter {
+            to { opacity: 1; transform: translateY(0); }
         }
 
         nav.scrolled {
@@ -109,8 +123,7 @@
         .swiper-button-next, .swiper-button-prev { 
             color: #ffffff !important; 
             background: #0ea5e9; 
-            width: 40px !important; 
-            height: 40px !important; 
+            width: 40px !important; height: 40px !important; 
             border-radius: 50%; 
             box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
             transition: all 0.3s ease;
@@ -194,8 +207,10 @@
         </div>
         
         <div class="flex flex-col items-center w-full relative z-10">
-            <!-- Menyamakan font nama menjadi font-sans (Plus Jakarta Sans) seperti teks di bawahnya dengan ketebalan ekstra tebal (font-extrabold) -->
-            <h2 class="font-sans text-2xl md:text-5xl font-extrabold tracking-[0.15em] text-primary mb-4 text-center uppercase" data-aos="fade-up">GIOVANI CHADAVI HIDAYAT</h2>
+            <!-- Menambahkan gradasi warna linear, merapatkan spasi dengan tracking-normal, dan membungkus id nama untuk diproses injeksi huruf per huruf via JS -->
+            <h2 id="animated-name" class="font-sans text-2xl md:text-5xl font-extrabold tracking-normal gradient-text mb-4 text-center uppercase select-none">
+                GIOVANI CHADAVI HIDAYAT
+            </h2>
             <h1 class="text-3xl md:text-7xl font-black mb-6 leading-tight text-center" data-aos="fade-up" data-aos-delay="200">
                 I am a <br> <span class="gradient-text typing-text"></span>
             </h1>
@@ -489,21 +504,49 @@
             }
         }
 
-        // Script Generator Animasi Mesh Baru (Fluid & Smooth Floating)
+        // Script Efek Animasi Memunculkan Huruf Nama 1 per 1 secara Otomatis
+        const nameContainer = document.getElementById('animated-name');
+        const nameText = nameContainer.innerText.trim();
+        nameContainer.innerHTML = ''; 
+        
+        nameText.split('').forEach((char, index) => {
+            const span = document.createElement('span');
+            if (char === ' ') {
+                span.innerHTML = '&nbsp;'; // Menjaga spasi antar kata tetap aman
+            } else {
+                span.innerText = char;
+                span.className = 'letter';
+                span.style.animationDelay = `${index * 0.04}s`; // Mengatur interval kemunculan berurutan tiap huruf
+            }
+            nameContainer.appendChild(span);
+        });
+
+        // Script Generator Animasi Cyber Digital Code Rain (Barisan kode bergerak ke bawah)
         const container = document.getElementById('particles-container');
-        const count = 25; 
-        for(let i=0; i<count; i++) {
-            const p = document.createElement('div');
-            p.className = 'particle';
-            const size = Math.random() * 40 + 20 + 'px'; // Ukuran diperbesar (20px - 60px) agar efek mesh fluid terlihat mewah
-            p.style.width = size;
-            p.style.height = size;
-            p.style.left = Math.random() * 100 + 'vw';
-            p.style.top = Math.random() * 100 + 'vh';
-            p.style.animationDuration = Math.random() * 15 + 15 + 's'; // Kecepatan melayang lambat dan halus (15s - 30s)
-            p.style.animationDelay = '-' + (Math.random() * 10) + 's'; // Pengaturan delay minus agar animasi langsung jalan rata tanpa jeda kosong di awal
-            p.style.opacity = Math.random() * 0.4 + 0.2; 
-            container.appendChild(p);
+        const columnCount = Math.floor(window.innerWidth / 35); // Menyesuaikan jumlah baris kode dengan lebar layar perangkat
+        
+        const codeSnippets = [
+            "01", "10", "if(dev)", "auth()->user()", "SELECT *", "npm run dev", 
+            "git commit", "Route::get", "config:cache", "while(true)", "$.ajax", 
+            "MySQL", "Laravel", "SysAdmin", "Ubuntu", "PHP", "ctx", "0xFA39"
+        ];
+
+        for(let i = 0; i < columnCount; i++) {
+            const stream = document.createElement('div');
+            stream.className = 'code-stream';
+            
+            // Mengacak konten potongan barisan kode pemrograman
+            let streamText = "";
+            const streamLength = Math.floor(Math.random() * 8) + 5;
+            for(let j = 0; j < streamLength; j++) {
+                streamText += codeSnippets[Math.floor(Math.random() * codeSnippets.length)] + " ";
+            }
+            
+            stream.innerText = streamText;
+            stream.style.left = (i * (100 / columnCount)) + 'vw';
+            stream.style.animationDuration = Math.random() * 6 + 8 + 's'; // Kecepatan jatuhnya bervariasi (8s - 14s)
+            stream.style.animationDelay = '-' + (Math.random() * 12) + 's'; // Delay minus agar halaman terisi instan tanpa jeda kosong di awal
+            container.appendChild(stream);
         }
     </script>
 </body>
