@@ -52,37 +52,43 @@
                               linear-gradient(to bottom, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
         }
 
-        /* Pembaharuan: Animasi Kotak Matriks Berpendar (Sangat Jelas, Kontras & Futuristik) */
+        /* Pembaharuan: Animasi Node Quantum Statis Berdenyut (Sangat Kontras, Diam di Tempat & Jelas) */
         .tech-node {
             position: absolute; 
-            border: 2px solid #0ea5e9;
-            background: rgba(14, 165, 233, 0.05);
-            border-radius: 4px;
-            animation: floatCube 14s infinite linear;
-            opacity: 0.8;
-            filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.6)) drop-shadow(0 0 15px rgba(34, 197, 94, 0.3));
-        }
-        .dark .tech-node {
-            background: rgba(14, 165, 233, 0.02);
-            border-color: rgba(14, 165, 233, 0.8);
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0ea5e9, #22c55e);
+            animation: pulseCore 3s infinite ease-in-out;
+            opacity: 0.9;
+            filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.8)) drop-shadow(0 0 20px rgba(34, 197, 94, 0.4));
         }
 
-        /* Perubahan: translateY diubah menjadi -150vh agar melayang terus melewati batas atas layar dan navbar baru hilang */
-        @keyframes floatCube {
-            0% {
-                transform: translateY(105vh) translateX(0) rotate(0deg) scale(0.8);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.85;
-            }
-            90% {
-                opacity: 0.85;
-            }
-            100% {
-                transform: translateY(-150vh) translateX(50px) rotate(360deg) scale(1.2);
-                opacity: 0;
-            }
+        /* Efek Halo Riak Radar Ganda yang Memancar Keluar Secara Konstan */
+        .tech-node::after, .tech-node::before {
+            content: ''; 
+            position: absolute; 
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%; 
+            border: 2px solid #0ea5e9;
+            transform-origin: center;
+        }
+
+        .tech-node::after {
+            animation: rippleRadar 3s infinite cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+
+        .tech-node::before {
+            animation: rippleRadar 3s infinite cubic-bezier(0.215, 0.610, 0.355, 1);
+            animation-delay: 1.5s;
+        }
+
+        @keyframes pulseCore {
+            0%, 100% { transform: scale(0.9); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 14px rgba(14, 165, 233, 1)); }
+        }
+
+        @keyframes rippleRadar {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(4.5); opacity: 0; border-color: #22c55e; filter: blur(0.5px); }
         }
 
         /* Animasi Muncul Huruf Halus dengan Warna Hitam Solid & Jarak yang Pas */
@@ -235,7 +241,7 @@
         <div class="flex flex-col items-center w-full relative z-10">
             <!-- Menyesuaikan konten nama baru dan mengubah tracking menjadi 'tracking-wide' agar memberikan ruang spasi yang ideal dan tidak terlalu rapat -->
             <h2 id="animated-name" class="font-sans text-2xl md:text-5xl font-extrabold tracking-wide mb-4 text-center uppercase select-none block min-h-[2rem]">
-                GIOVANI CHADAVI H.
+                GIOVANI C. H.
             </h2>
             <h1 class="text-3xl md:text-7xl font-black mb-6 leading-tight text-center" data-aos="fade-up" data-aos-delay="200">
                 I am a <br> <span class="gradient-text typing-text"></span>
@@ -552,26 +558,25 @@
             nameContainer.appendChild(span);
         });
 
-        // Script Generator Node Kotak Matriks Berpendar 3D Melayang (Sangat Kontras & Jelas)
+        // Script Generator Node Quantum Statis Radar Pulse (Diam di Tempat & Berdenyut Jelas)
         const container = document.getElementById('particles-container');
-        const cubeCount = 15; /* Jumlah diatur seimbang agar performa tetap ringan namun visual sangat terlihat */
+        const nodeCount = 12; /* Jumlah diatur presisi agar latar belakang elegan dan tidak terlalu padat */
 
-        for(let i = 0; i < cubeCount; i++) {
-            const cube = document.createElement('div');
-            cube.className = 'tech-node';
+        for(let i = 0; i < nodeCount; i++) {
+            const node = document.createElement('div');
+            node.className = 'tech-node';
             
-            // Variasi ukuran acak agar menciptakan efek kedalaman 3D
-            const size = Math.floor(Math.random() * 25) + 15;
-            cube.style.width = size + 'px';
-            cube.style.height = size + 'px';
+            // Ukuran konstan untuk menjaga konsistensi bentuk radar
+            node.style.width = '12px';
+            node.style.height = '12px';
             
-            cube.style.left = Math.random() * 90 + 'vw';
-            cube.style.bottom = (Math.random() * -20) + 'vh'; // Mulai dari bawah layar agar mengalir konstan ke atas
+            // Penempatan acak di seluruh area viewport
+            node.style.left = Math.random() * 92 + 'vw';
+            node.style.top = Math.random() * 80 + 10 + 'vh';
             
-            // Variasi durasi dan penundaan animasi agar pergerakan terlihat organik
-            cube.style.animationDuration = (Math.random() * 6 + 10) + 's';
-            cube.style.animationDelay = '-' + (Math.random() * 14) + 's'; 
-            container.appendChild(cube);
+            // Mengacak jeda animasi riak antar node agar menyebar secara alami
+            node.style.animationDelay = '-' + (Math.random() * 3) + 's'; 
+            container.appendChild(node);
         }
     </script>
 </body>
