@@ -39,45 +39,50 @@
         .gradient-text { background: linear-gradient(to right, #0ea5e9, #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .logo-g { font-family: 'Playfair Display', serif; font-style: italic; }
 
-        /* Perbaikan Latar Belakang: Grid Kanvas Lebih Tegas & Elegan */
+        /* Perbaikan Latar Belakang: Grid Kanvas Lebih Jelas, Tegas & Berdimensi */
         .bg-particles {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1; overflow: hidden;
-            background-size: 50px 50px;
-            background-image: linear-gradient(to right, rgba(14, 165, 233, 0.06) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(14, 165, 233, 0.06) 1px, transparent 1px);
+            background-size: 60px 60px;
+            background-image: linear-gradient(to right, rgba(14, 165, 233, 0.08) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(14, 165, 233, 0.08) 1px, transparent 1px);
         }
         .dark .bg-particles {
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-image: linear-gradient(to right, rgba(14, 165, 233, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
         }
 
-        /* Perubahan: Node Diperjelas dengan Efek Riak Gelombang Quantum Langit */
+        /* Pembaharuan: Bola Orbs Teknologi yang Jauh Lebih Jelas, Menyala & Kontras */
         .tech-node {
-            position: absolute; width: 8px; height: 8px; border-radius: 50%;
-            background: linear-gradient(45deg, #0ea5e9, #22c55e);
-            animation: moveNode 12s infinite linear;
-            box-shadow: 0 0 12px rgba(14, 165, 233, 0.6);
+            position: absolute; 
+            width: 14px; 
+            height: 14px; 
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0ea5e9, #22c55e);
+            animation: moveNode 10s infinite ease-in-out;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.8)) drop-shadow(0 0 20px rgba(34, 197, 94, 0.4));
         }
-        /* Efek Gelombang Riak Halo di Sekitar Node */
+
+        /* Pembaharuan: Efek Riak Ring Detektor Ganda di Luar Lingkaran yang Sangat Kontras */
         .tech-node::after {
-            content: ''; position: absolute; top: -12px; left: -12px; right: -12px; bottom: -12px;
-            border-radius: 50%; border: 2px solid rgba(14, 165, 233, 0.3);
-            animation: rippleNode 2.5s infinite ease-out;
-        }
-        .dark .tech-node::after {
-            border-color: rgba(14, 165, 233, 0.5);
+            content: ''; 
+            position: absolute; 
+            top: -18px; left: -18px; right: -18px; bottom: -18px;
+            border-radius: 50%; 
+            border: 2px solid #0ea5e9;
+            animation: rippleNode 2s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         @keyframes moveNode {
-            0% { transform: translateY(0) scale(0.8); opacity: 0; }
-            10% { opacity: 0.7; }
-            90% { opacity: 0.7; }
-            100% { transform: translateY(-100vh) scale(1.1); opacity: 0; }
+            0% { transform: translateY(10vh) scale(0.7) translateX(0); opacity: 0; }
+            15% { opacity: 0.85; }
+            85% { opacity: 0.85; }
+            100% { transform: translateY(-110vh) scale(1.2) translateX(30px); opacity: 0; }
         }
         @keyframes rippleNode {
-            0% { transform: scale(0.3); opacity: 1; }
-            100% { transform: scale(1.3); opacity: 0; }
+            0% { transform: scale(0.4); opacity: 1; }
+            100% { transform: scale(1.4); opacity: 0; filter: blur(1px); }
         }
 
         /* Animasi Muncul Huruf Halus dengan Warna Hitam Solid & Jarak yang Pas */
@@ -547,16 +552,17 @@
             nameContainer.appendChild(span);
         });
 
-        // Script Generator Node Konstelasi Quantum yang Mengalir Konstan (Jauh Lebih Terlihat & Jelas)
+        // Script Generator Node Konstelasi Premium (Lebih Besar, Kontras Tinggi & Mengalir Indah)
         const container = document.getElementById('particles-container');
-        const nodeCount = 18; /* Jumlah simpul cahaya dioptimalkan agar seimbang di layar */
+        const nodeCount = 20; /* Mengoptimalkan jumlah orbs agar memenuhi kanvas latar belakang dengan seimbang */
 
         for(let i = 0; i < nodeCount; i++) {
             const node = document.createElement('div');
             node.className = 'tech-node';
-            node.style.left = Math.random() * 100 + 'vw';
-            node.style.top = (Math.random() * 80 + 20) + 'vh';
-            node.style.animationDuration = (Math.random() * 5 + 8) + 's';
+            node.style.left = Math.random() * 95 + 'vw';
+            node.style.bottom = (Math.random() * 90) + 'vh';
+            // Variasi kecepatan agar pergerakan multi-dimensi terlihat jelas dan hidup
+            node.style.animationDuration = (Math.random() * 4 + 8) + 's';
             node.style.animationDelay = '-' + (Math.random() * 10) + 's'; 
             container.appendChild(node);
         }
