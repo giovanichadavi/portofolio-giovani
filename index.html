@@ -111,6 +111,13 @@
             66% { content: "Tech Enthusiast"; }
         }
 
+        /* BARU: Animasi looping teks deskripsi keluar satu persatu */
+        .typing-desc::after { content: ""; animation: typingDesc 8s infinite; font-weight: 600; }
+        @keyframes typingDesc {
+            0%, 100% { content: "Spesialisasi dalam pengembangan sistem backend menggunakan Laravel."; }
+            50% { content: "Fokus pada manajemen infrastruktur server Linux yang optimal."; }
+        }
+
         .toggle-label {
             width: 46px; height: 24px; background-color: #334155;
             display: flex; border-radius: 50px; align-items: center; justify-content: space-between;
@@ -256,7 +263,7 @@
             <div class="w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-primary overflow-hidden shadow-2xl mx-auto cursor-zoom-in group" onclick="openLightbox()">
                 <img src="profil.jpg" alt="Giovani Profile" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
             </div>
-            <div class="absolute bottom-2 right-4 bg-green-500 w-7 h-7 rounded-full border-4 border-white dark:border-dark-bg"></div>
+            <div class="absolute bottom-2 right-4 bg-green-500 w-7 h-7 rounded-full border-4 border-white dark:border-dark-bg animate-pulse shadow-[0_0_14px_rgba(34,197,94,0.8)]"></div>
         </div>
         
         <div class="flex flex-col items-center w-full relative z-10">
@@ -266,8 +273,8 @@
             <h1 class="text-3xl md:text-7xl font-black mb-6 leading-tight text-center" data-aos="fade-up" data-aos-delay="250">
                 I am a <br> <span class="gradient-text typing-text"></span>
             </h1>
-            <p class="max-w-2xl text-slate-500 dark:text-slate-400 text-base md:text-lg mb-12 leading-relaxed text-center" data-aos="fade-up" data-aos-delay="400">
-                Spesialisasi dalam pengembangan sistem backend menggunakan Laravel dan manajemen server Linux yang optimal.
+            <p class="max-w-2xl text-slate-500 dark:text-slate-400 text-base md:text-lg mb-12 leading-relaxed text-center min-h-[56px]" data-aos="fade-up" data-aos-delay="400">
+                <span class="typing-desc"></span>
             </p>
         </div>
         
@@ -277,31 +284,31 @@
         </div>
     </section>
 
-    <section id="carrier" class="py-24 md:py-32 px-6 md:px-10 bg-slate-100 dark:bg-slate-800/30 overflow-hidden">
+    <section id="carrier" class="py-12 md:py-16 px-6 md:px-10 bg-slate-100 dark:bg-slate-800/30 overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <h3 class="text-2xl md:text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6" data-aos="fade-down">Professional Carrier</h3>
-            <div class="space-y-16 text-left">
-                <div class="relative pl-8 md:pl-12 border-l-2 border-primary/30 flex flex-col md:flex-row gap-6 md:gap-8 items-start" data-aos="fade-up">
+            <h3 class="text-2xl md:text-3xl font-black mb-10 uppercase border-l-8 border-primary pl-6" data-aos="fade-down">Professional Carrier</h3>
+            <div class="space-y-10 text-left">
+                <div class="relative pl-8 md:pl-12 border-l-2 border-primary/30 flex flex-col md:flex-row gap-4 md:gap-6 items-start" data-aos="fade-up">
                     <div class="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-1"></div>
                     <div class="carrier-img-box w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-md p-2 transition-transform duration-300">
                         <img src="danumtaka.png" class="w-full h-full object-contain transition-all duration-300" alt="Danum Taka">
                     </div>
                     <div>
                         <h4 class="text-lg md:text-xl font-bold">Intern Informatic Technology</h4>
-                        <p class="text-primary font-bold text-xs md:text-sm mb-2 uppercase">2025 - Sekarang</p>
-                        <p class="text-slate-700 dark:text-slate-200 font-bold mb-2">Perumda Air Minum Danum Taka Kabupaten Penajam Paser Utara</p>
+                        <p class="text-primary font-bold text-xs md:text-sm mb-1 uppercase">2025 - Sekarang</p>
+                        <p class="text-slate-700 dark:text-slate-200 font-bold mb-1">Perumda Air Minum Danum Taka Kabupaten Penajam Paser Utara</p>
                         <p class="text-slate-500 dark:text-slate-400 max-w-3xl text-sm md:text-base leading-relaxed">Bertanggung jawab dalam pengelolaan infrastruktur IT, pemeliharaan sistem informasi, dan optimalisasi jaringan internal perusahaan.</p>
                     </div>
                 </div>
-                <div class="relative pl-8 md:pl-12 border-l-2 border-primary/30 flex flex-col md:flex-row gap-6 md:gap-8 items-start" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative pl-8 md:pl-12 border-l-2 border-primary/30 flex flex-col md:flex-row gap-4 md:gap-6 items-start" data-aos="fade-up" data-aos-delay="200">
                     <div class="absolute w-4 h-4 bg-slate-300 rounded-full -left-[9px] top-1"></div>
                     <div class="carrier-img-box w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-white rounded-2xl overflow-hidden shadow-md p-2 transition-transform duration-300">
                         <img src="kedaireka.png" class="w-full h-full object-contain transition-all duration-300" alt="Kedaireka">
                     </div>
                     <div>
                         <h4 class="text-lg md:text-xl font-bold">Design Specialist UMKM</h4>
-                        <p class="text-primary font-bold text-xs md:text-sm mb-2 uppercase">2024 - 2025</p>
-                        <p class="text-slate-700 dark:text-slate-200 font-bold mb-2">Kedaireka - Kabupaten Kutai Kartanegara</p>
+                        <p class="text-primary font-bold text-xs md:text-sm mb-1 uppercase">2024 - 2025</p>
+                        <p class="text-slate-700 dark:text-slate-200 font-bold mb-1">Kedaireka - Kabupaten Kutai Kartanegara</p>
                         <p class="text-slate-500 dark:text-slate-400 max-w-3xl text-sm md:text-base leading-relaxed">Memberikan solusi desain strategis dan pengembangan identitas visual untuk pelaku UMKM guna meningkatkan daya saing pasar digital.</p>
                     </div>
                 </div>
@@ -309,49 +316,49 @@
         </div>
     </section>
 
-    <section id="skills" class="py-24 md:py-32 px-6 md:px-10 bg-white dark:bg-slate-900/50">
+    <section id="skills" class="py-12 md:py-16 px-6 md:px-10 bg-white dark:bg-slate-900/50">
         <div class="max-w-7xl mx-auto">
-            <h3 class="text-2xl md:text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6" data-aos="fade-right">Technical Skills</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-                <div class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up">
-                    <i class="fab fa-laravel text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-4 group-hover:scale-110 transition"></i>
+            <h3 class="text-2xl md:text-3xl font-black mb-10 uppercase border-l-8 border-primary pl-6" data-aos="fade-right">Technical Skills</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="p-4 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up">
+                    <i class="fab fa-laravel text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-3 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">Laravel</h4>
                 </div>
-                <div class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="50">
-                    <i class="fab fa-php text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-4 group-hover:scale-110 transition"></i>
+                <div class="p-4 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="50">
+                    <i class="fab fa-php text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-3 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">PHP</h4>
                 </div>
-                <div class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="100">
-                    <i class="fas fa-server text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-4 group-hover:scale-110 transition"></i>
+                <div class="p-4 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="100">
+                    <i class="fas fa-server text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-3 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">SysAdmin</h4>
                 </div>
-                <div class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="150">
-                    <i class="fab fa-linux text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-4 group-hover:scale-110 transition"></i>
+                <div class="p-4 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="150">
+                    <i class="fab fa-linux text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-3 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">Linux</h4>
                 </div>
-                <div class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="200">
-                    <i class="fas fa-database text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-4 group-hover:scale-110 transition"></i>
+                <div class="p-4 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="200">
+                    <i class="fas fa-database text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-3 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">MySQL</h4>
                 </div>
-                <div class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="250">
-                    <i class="fas fa-shield-halved text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-4 group-hover:scale-110 transition"></i>
+                <div class="p-4 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="250">
+                    <i class="fas fa-shield-halved text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-3 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">CyberSec</h4>
                 </div>
-                <div class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="300">
-                    <i class="fab fa-git-alt text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-4 group-hover:scale-110 transition"></i>
+                <div class="p-4 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="300">
+                    <i class="fab fa-git-alt text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-3 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">Git Build</h4>
                 </div>
-                <div class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="350">
-                    <i class="fas fa-terminal text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-4 group-hover:scale-110 transition"></i>
+                <div class="p-4 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="350">
+                    <i class="fas fa-terminal text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-3 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">Bash Script</h4>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-12 md:py-20 px-6 md:px-10 overflow-hidden relative">
+    <section id="projects" class="py-12 md:py-16 px-6 md:px-10 overflow-hidden relative">
         <div class="max-w-7xl mx-auto relative">
-            <h3 class="text-2xl md:text-3xl font-black mb-12 uppercase border-l-8 border-primary pl-6" data-aos="fade-down">Latest Projects</h3>
+            <h3 class="text-2xl md:text-3xl font-black mb-10 uppercase border-l-8 border-primary pl-6" data-aos="fade-down">Latest Projects</h3>
             
             <div class="swiper projectSwiper pb-4 relative px-2">
                 <div class="swiper-wrapper">
@@ -441,9 +448,9 @@
         </div>
     </section>
 
-    <section id="education" class="py-24 md:py-32 px-6 md:px-10 bg-slate-50 dark:bg-slate-900 overflow-hidden">
+    <section id="education" class="py-12 md:py-16 px-6 md:px-10 bg-slate-50 dark:bg-slate-900 overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <h3 class="text-2xl md:text-3xl font-black mb-16 uppercase border-l-8 border-primary pl-6" data-aos="fade-down">Education</h3>
+            <h3 class="text-2xl md:text-3xl font-black mb-10 uppercase border-l-8 border-primary pl-6" data-aos="fade-down">Education</h3>
             <div class="space-y-12">
                 <div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] shadow-xl border dark:border-slate-700 flex flex-col md:flex-row items-center gap-8 group" data-aos="fade-up">
                     <div class="carrier-img-box w-32 h-32 flex-shrink-0 p-2">
@@ -461,7 +468,7 @@
         </div>
     </section>
 
-    <section id="contact" class="py-20 px-6 md:px-8 text-center relative z-10">
+    <section id="contact" class="py-12 md:py-16 px-6 md:px-8 text-center relative z-10">
         <div class="btn-animate max-w-5xl mx-auto bg-[#0b1329] rounded-[2.5rem] p-8 md:p-14 text-white text-left shadow-2xl relative overflow-hidden flex flex-col md:flex-row-reverse items-center justify-between gap-10 cursor-default min-h-[380px]" data-aos="zoom-in">
             
             <div class="cyber-card-overlay">
