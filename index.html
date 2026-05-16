@@ -462,7 +462,7 @@
     </section>
 
     <section id="contact" class="py-20 px-6 md:px-8 text-center relative z-10">
-        <div class="btn-animate max-w-5xl mx-auto bg-[#0b1329] rounded-[2.5rem] p-8 md:p-14 text-white text-left shadow-2xl relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-10 items-center cursor-default min-h-[380px]" data-aos="zoom-in">
+        <div class="btn-animate max-w-5xl mx-auto bg-[#0b1329] rounded-[2.5rem] p-8 md:p-14 text-white text-left shadow-2xl relative overflow-hidden flex flex-col lg:flex-row-reverse items-center justify-between gap-10 cursor-default min-h-[380px]" data-aos="zoom-in">
             
             <div class="cyber-card-overlay">
                 <div class="cyber-grid-pattern"></div>
@@ -470,38 +470,8 @@
                     <path d="M0,64L120,74.7C240,85,480,107,720,106.7C960,107,1200,85,1320,74.7L1440,64L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z"></path>
                 </svg>
             </div>
-            
-            <div class="lg:col-span-5 w-full flex justify-center items-center relative min-h-[240px] lg:min-h-[300px] z-10 overflow-hidden order-2 lg:order-1">
-                <div class="absolute w-48 h-48 md:w-56 md:h-56 border border-sky-500/30 rounded-full radar-scan-rotate border-dashed"></div>
-                <div class="absolute w-36 h-36 md:w-44 md:h-44 border-2 border-emerald-500/20 rounded-full radar-scan-rotate" style="animation-duration: 4s; animation-direction: reverse;"></div>
-                
-                <div class="relative w-52 h-44 md:w-60 md:h-48 bg-slate-950/90 rounded-xl border border-sky-500/40 p-3 shadow-2xl overflow-hidden font-mono flex flex-col">
-                    <div class="flex gap-1.5 items-center pb-2 border-b border-slate-800 mb-2 flex-shrink-0">
-                        <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
-                        <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
-                        <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
-                        <span class="text-[9px] text-slate-500 ml-1 tracking-wider uppercase">secure_shell.sh</span>
-                    </div>
-                    <div class="w-full flex-grow overflow-hidden relative text-emerald-400 text-[10px] leading-relaxed opacity-85 select-none">
-                        <div class="moving-binary-text absolute w-full left-0 top-0 flex flex-col gap-1">
-                            <span>01101001 01101110 01110100</span>
-                            <span class="text-sky-400">CONNECTING TO PORT 3306...</span>
-                            <span>DATABASE STATUS: OPTIMAL</span>
-                            <span>SYSTEM REPOSITORY UP-TO-DATE</span>
-                            <span class="text-yellow-400">> php artisan queue:work</span>
-                            <span>[2026-05-16] Log.INFO: Success</span>
-                            <span>01010011 01011001 01010011</span>
-                            <span class="text-sky-400">BASH ENCRYPTION ON [AES-256]</span>
-                            <span>01101001 01101110 01110100</span>
-                            <span class="text-emerald-300">SERVER STABILITY: 99.99%</span>
-                            <span>LOAD BALANCER ACTIVE...</span>
-                            <span>01010011 01011001 01010011</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="lg:col-span-7 w-full flex flex-col items-center lg:items-start text-center lg:text-left relative z-10 order-1 lg:order-2">
+            <div class="w-full lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left relative z-10">
                 <h3 class="text-3xl md:text-5xl font-black mb-4 leading-tight text-white flex gap-1 select-none tracking-tight">
                     <span class="animate-pulse delay-1">L</span>
                     <span class="animate-pulse delay-2">e</span>
@@ -529,6 +499,36 @@
                     <div class="flex gap-5 text-2xl text-slate-300">
                         <a href="https://github.com/giovanichadavi" target="_blank" class="hover:text-primary transition-all transform hover:scale-110"><i class="fab fa-github"></i></a>
                         <a href="https://linkedin.com/in/giovanichadavi" target="_blank" class="hover:text-primary transition-all transform hover:scale-110"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="w-full lg:w-[40%] flex justify-center items-center relative min-h-[240px] lg:min-h-[300px] z-10 overflow-hidden">
+                <div class="absolute w-48 h-48 md:w-56 md:h-56 border border-sky-500/30 rounded-full radar-scan-rotate border-dashed"></div>
+                <div class="absolute w-36 h-36 md:w-44 md:h-44 border-2 border-emerald-500/20 rounded-full radar-scan-rotate" style="animation-duration: 4s; animation-direction: reverse;"></div>
+                
+                <div class="relative w-52 h-44 md:w-60 md:h-48 bg-slate-950/90 rounded-xl border border-sky-500/40 p-3 shadow-2xl overflow-hidden font-mono flex flex-col">
+                    <div class="flex gap-1.5 items-center pb-2 border-b border-slate-800 mb-2 flex-shrink-0">
+                        <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                        <span class="text-[9px] text-slate-500 ml-1 tracking-wider uppercase">secure_shell.sh</span>
+                    </div>
+                    <div class="w-full flex-grow overflow-hidden relative text-emerald-400 text-[10px] leading-relaxed opacity-85 select-none">
+                        <div class="moving-binary-text absolute w-full left-0 top-0 flex flex-col gap-1">
+                            <span>01101001 01101110 01110100</span>
+                            <span class="text-sky-400">CONNECTING TO PORT 3306...</span>
+                            <span>DATABASE STATUS: OPTIMAL</span>
+                            <span>SYSTEM REPOSITORY UP-TO-DATE</span>
+                            <span class="text-yellow-400">> php artisan queue:work</span>
+                            <span>[2026-05-16] Log.INFO: Success</span>
+                            <span>01010011 01011001 01010011</span>
+                            <span class="text-sky-400">BASH ENCRYPTION ON [AES-256]</span>
+                            <span>01101001 01101110 01110100</span>
+                            <span class="text-emerald-300">SERVER STABILITY: 99.99%</span>
+                            <span>LOAD BALANCER ACTIVE...</span>
+                            <span>01010011 01011001 01010011</span>
+                        </div>
                     </div>
                 </div>
             </div>
