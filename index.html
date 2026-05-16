@@ -14,6 +14,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
+    <script defer src="/_vercel/insights/script.js"></script>
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -564,14 +566,14 @@
             
             <div class="flex flex-col items-center justify-center py-2">
                 <div class="flex items-center gap-4 bg-slate-100/80 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 px-6 py-3 rounded-2xl shadow-inner mb-2 group">
-                    <i class="fas fa-users text-2xl text-primary group-hover:scale-110 transition duration-300"></i>
+                    <i class="fas fa-chart-line text-2xl text-primary group-hover:scale-110 transition duration-300"></i>
                     <div class="text-left">
-                        <span id="visitor-count" class="text-2xl font-black text-slate-800 dark:text-white block font-mono tracking-tight">Loading...</span>
-                        <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Total Website Access</span>
+                        <span class="text-xl font-black text-slate-800 dark:text-white block font-sans tracking-tight">Active Track</span>
+                        <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Vercel Insights Service</span>
                     </div>
                 </div>
                 <p class="text-[11px] text-slate-400 dark:text-slate-500 max-w-xs mx-auto">
-                    Dipantau langsung dari deployment infrastruktur server <span class="text-primary font-bold">Vercel Edge Network</span>.
+                    Trafik, lokasi, and kunjungan dipantau langsung secara realtime dari server <span class="text-primary font-bold">Vercel Web Analytics Dashboard</span>.
                 </p>
             </div>
         </div>
@@ -688,40 +690,6 @@
             style.innerHTML = `.tech-node:nth-child(${i+1})::after { animation-duration: ${streamDuration}s !important; animation-delay: ${delay} !important; }`;
             document.head.appendChild(style);
         }
-
-        // MODIFIKASI: ENGINE UTAMA HIT COUNTER ASLI REALTIME BERBASIS PRODUCTION COUNTAPI CO.
-        document.addEventListener("DOMContentLoaded", () => {
-            // Namespace dan Key Unik berbasis domain aman portofolio Anda
-            const namespace = "safety.danumtaka.com";
-            const key = "giovani_portfolio_visits";
-
-            // Eksekusi penambahan hit asli ke cloud database Vercel-friendly
-            fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-                .then(res => {
-                    if (!res.ok) throw new Error("Database Cloud Gateway Overloaded");
-                    return res.json();
-                })
-                .then(data => {
-                    const displayCount = document.getElementById('visitor-count');
-                    if (displayCount && data.value) {
-                        // Merender data asli dari cloud dengan separator ribuan standar Indonesia (id-ID)
-                        displayCount.innerText = data.value.toLocaleString('id-ID');
-                    }
-                })
-                .catch(err => {
-                    console.warn("CountAPI rate limited, executing local persistent fallback engine:", err);
-                    
-                    // Backup Engine: Menggunakan localStorage persistent jika koneksi API publik terkena pembatasan ISP/Limit
-                    let backupCount = parseInt(localStorage.getItem('giovani_real_visits')) || 1247;
-                    if (!sessionStorage.getItem('giovani_session_active')) {
-                        backupCount += 1;
-                        localStorage.setItem('giovani_real_visits', backupCount);
-                        sessionStorage.setItem('giovani_session_active', 'true');
-                    }
-                    const displayCount = document.getElementById('visitor-count');
-                    if (displayCount) displayCount.innerText = backupCount.toLocaleString('id-ID');
-                });
-        });
 
         // SCRIPT ANIMASI MENGETIK HURUF DEMI HURUF (TYPING EFFECT)
         document.addEventListener("DOMContentLoaded", () => {
