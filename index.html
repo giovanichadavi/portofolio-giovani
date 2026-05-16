@@ -549,52 +549,62 @@
         </div>
     </section>
 
-    <section id="git-metrics" class="pb-16 px-6 md:px-10">
+    <section id="deployment-status" class="pb-16 px-6 md:px-10">
         <div class="max-w-md mx-auto bg-white/60 dark:bg-slate-800/40 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-200/50 dark:border-slate-700/50 relative overflow-hidden transition-all duration-300" data-aos="fade-up">
             <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-primary/10 rounded-full blur-xl pointer-events-none"></div>
             
             <div class="flex items-center justify-between mb-5">
-                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Repository Development Metrics</h4>
-                <div class="flex items-center gap-1.5 bg-blue-500/10 text-blue-500 px-2.5 py-1 rounded-full text-[10px] font-bold">
-                    <i class="fab fa-git-alt animate-spin text-[11px]" style="animation-duration: 3s;"></i> LIVE ACTIVITY
+                <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Project Deployment Status</h4>
+                <div class="flex items-center gap-1.5 bg-green-500/10 text-green-500 px-2.5 py-1 rounded-full text-[10px] font-bold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> ALL LIVE
                 </div>
             </div>
             
             <div class="grid grid-cols-2 gap-4 mb-5">
                 <div class="bg-slate-100/50 dark:bg-slate-900/30 border dark:border-slate-800 p-3 rounded-2xl">
-                    <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Total Commits</span>
-                    <span class="text-lg font-black font-mono text-slate-800 dark:text-white">1,428 +</span>
+                    <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Avg Response</span>
+                    <span class="text-lg font-black font-mono text-slate-800 dark:text-white">42 ms</span>
                 </div>
                 <div class="bg-slate-100/50 dark:bg-slate-900/30 border dark:border-slate-800 p-3 rounded-2xl">
-                    <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Deployment Build</span>
-                    <span class="text-xs font-extrabold text-emerald-500 flex items-center gap-1 mt-1"><i class="fas fa-circle-check"></i> 100% PASSING</span>
+                    <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Architecture</span>
+                    <span class="text-xs font-extrabold text-sky-500 flex items-center gap-1 mt-1"><i class="fas fa-cloud"></i> CLOUD LIVE</span>
                 </div>
             </div>
 
             <div class="space-y-3.5">
                 <div>
                     <div class="flex justify-between items-center text-[11px] font-bold mb-1">
-                        <span class="text-slate-500 dark:text-slate-400">Production App Repositories</span>
-                        <span class="font-mono text-primary">24 Active</span>
+                        <span class="text-slate-600 dark:text-slate-300">projectptpn4.vercel.app</span>
+                        <span class="font-mono text-emerald-500"><i class="fas fa-circle-check"></i> Operational</span>
                     </div>
-                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-primary h-full rounded-full" style="width: 80%"></div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-1 rounded-full overflow-hidden">
+                        <div class="bg-emerald-500 h-full rounded-full" style="width: 100%"></div>
                     </div>
                 </div>
                 
                 <div>
                     <div class="flex justify-between items-center text-[11px] font-bold mb-1">
-                        <span class="text-slate-500 dark:text-slate-400">CI/CD Pipeline Automation</span>
-                        <span class="font-mono text-green-500">Optimized</span>
+                        <span class="text-slate-600 dark:text-slate-300">safety-pink-psi.vercel.app</span>
+                        <span class="font-mono text-emerald-500"><i class="fas fa-circle-check"></i> Operational</span>
                     </div>
-                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
-                        <div class="bg-green-500 h-full rounded-full" style="width: 95%"></div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-1 rounded-full overflow-hidden">
+                        <div class="bg-emerald-500 h-full rounded-full" style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between items-center text-[11px] font-bold mb-1">
+                        <span class="text-slate-600 dark:text-slate-300">coffe-green-alpha.vercel.app</span>
+                        <span class="font-mono text-emerald-500"><i class="fas fa-circle-check"></i> Operational</span>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-1 rounded-full overflow-hidden">
+                        <div class="bg-emerald-500 h-full rounded-full" style="width: 100%"></div>
                     </div>
                 </div>
             </div>
             
             <p class="text-[10px] text-slate-400 dark:text-slate-500 text-center mt-5 font-medium leading-relaxed border-t dark:border-slate-800/60 pt-3">
-                Seluruh aktivitas siklus kode and deployment terintegrasi langsung dengan ekosistem <span class="text-primary font-bold">Vercel & GitHub Enterprise</span>.
+                Infrastruktur routing and SSL handshake diatur secara otomatis menggunakan jaringan *Edge Network Vercel*.
             </p>
         </div>
     </section>
