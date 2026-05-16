@@ -159,17 +159,25 @@
                               linear-gradient(to bottom, rgba(14, 165, 233, 0.06) 1px, transparent 1px);
             position: absolute; inset: 0;
         }
+        .wave-layer {
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 60px;
+            fill: rgba(14, 165, 233, 0.08); animation: waveMove 6s ease-in-out infinite alternate;
+        }
+        @keyframes waveMove {
+            from { transform: translateY(5px) scaleY(0.9); }
+            to { transform: translateY(-5px) scaleY(1.1); }
+        }
         
-        /* Animasi Mengalir Aliran Teks Kode Kode Biner */
+        /* Animasi Aliran Teks Kode Biner Terminal */
         @keyframes codeScroll {
             0% { transform: translateY(-50%); }
             100% { transform: translateY(0%); }
         }
         .moving-binary-text {
-            animation: codeScroll 12s linear infinite;
+            animation: codeScroll 10s linear infinite;
         }
 
-        /* Rotasi Scanner Sistem */
+        /* Rotasi Scanner Sistem Radar */
         @keyframes radarRotate {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -325,7 +333,7 @@
                     <i class="fas fa-database text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-4 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">MySQL</h4>
                 </div>
-                <div class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="250">
+                <div class="p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-slate-50 dark:bg-slate-800 flex flex-col items-center justify-center text-center hover:shadow-xl transition group border dark:border-slate-700" data-aos="zoom-in-up" data-aos-delay="250">
                     <i class="fas fa-shield-halved text-4xl md:text-5xl text-slate-900 dark:text-slate-100 mb-4 group-hover:scale-110 transition"></i>
                     <h4 class="font-bold text-sm md:text-base">CyberSec</h4>
                 </div>
@@ -463,7 +471,37 @@
                 </svg>
             </div>
             
-            <div class="w-full lg:w-3/5 flex flex-col items-center lg:items-start text-center lg:text-left relative z-10">
+            <div class="w-full lg:w-2/5 flex justify-center items-center relative min-h-[240px] lg:min-h-[300px] z-10 overflow-hidden order-2 lg:order-1">
+                <div class="absolute w-48 h-48 md:w-56 md:h-56 border border-sky-500/30 rounded-full radar-scan-rotate border-dashed"></div>
+                <div class="absolute w-36 h-36 md:w-44 md:h-44 border-2 border-emerald-500/20 rounded-full radar-scan-rotate" style="animation-duration: 4s; animation-direction: reverse;"></div>
+                
+                <div class="relative w-52 h-44 md:w-60 md:h-48 bg-slate-950/90 rounded-xl border border-sky-500/40 p-3 shadow-2xl overflow-hidden font-mono flex flex-col">
+                    <div class="flex gap-1.5 items-center pb-2 border-b border-slate-800 mb-2 flex-shrink-0">
+                        <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                        <span class="text-[9px] text-slate-500 ml-1 tracking-wider uppercase">secure_shell.sh</span>
+                    </div>
+                    <div class="w-full flex-grow overflow-hidden relative text-emerald-400 text-[10px] leading-relaxed opacity-85 select-none">
+                        <div class="moving-binary-text absolute w-full left-0 top-0 flex flex-col gap-1">
+                            <span>01101001 01101110 01110100</span>
+                            <span class="text-sky-400">CONNECTING TO PORT 3306...</span>
+                            <span>DATABASE STATUS: OPTIMAL</span>
+                            <span>SYSTEM REPOSITORY UP-TO-DATE</span>
+                            <span class="text-yellow-400">> php artisan queue:work</span>
+                            <span>[2026-05-16] Log.INFO: Success</span>
+                            <span>01010011 01011001 01010011</span>
+                            <span class="text-sky-400">BASH ENCRYPTION ON [AES-256]</span>
+                            <span>01101001 01101110 01110100</span>
+                            <span class="text-emerald-300">SERVER STABILITY: 99.99%</span>
+                            <span>LOAD BALANCER ACTIVE...</span>
+                            <span>01010011 01011001 01010011</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-3/5 flex flex-col items-center lg:items-start text-center lg:text-left relative z-10 order-1 lg:order-2">
                 <h3 class="text-3xl md:text-5xl font-black mb-4 leading-tight text-white flex gap-1 select-none tracking-tight">
                     <span class="animate-pulse delay-1">L</span>
                     <span class="animate-pulse delay-2">e</span>
@@ -492,26 +530,6 @@
                         <a href="https://github.com/giovanichadavi" target="_blank" class="hover:text-primary transition-all transform hover:scale-110"><i class="fab fa-github"></i></a>
                         <a href="https://linkedin.com/in/giovanichadavi" target="_blank" class="hover:text-primary transition-all transform hover:scale-110"><i class="fab fa-linkedin"></i></a>
                     </div>
-                </div>
-            </div>
-
-            <div class="w-full lg:w-2/5 flex justify-center items-center relative min-h-[260px] lg:min-h-[300px] z-10 overflow-hidden select-none">
-                <div class="radar-pulse" style="animation-delay: 0s;"></div>
-                <div class="radar-pulse" style="animation-delay: 1s;"></div>
-                <div class="radar-pulse" style="animation-delay: 2s;"></div>
-
-                <div class="floating-server-box relative w-40 h-40 flex items-center justify-center">
-                    <div class="absolute w-28 h-28 bg-gradient-to-br from-sky-400 to-emerald-400 rounded-2xl opacity-80 blur-[1px] transform -rotate-x-[60deg] rotate-z-[45deg] -translate-y-8 shadow-inner flex items-center justify-center border border-white/40">
-                        <i class="fas fa-database text-white text-3xl transform rotate-z-[-45deg] rotate-x-[60deg] animate-pulse"></i>
-                    </div>
-                    <div class="absolute w-28 h-12 bg-sky-600/40 transform skew-y-[30deg] translate-x-[-56px] translate-y-[22px] border-l border-b border-sky-400/30 rounded-bl-xl"></div>
-                    <div class="absolute w-28 h-12 bg-emerald-600/30 transform skew-y-[-30deg] translate-x-[56px] translate-y-[22px] border-r border-b border-emerald-400/30 rounded-br-xl"></div>
-                    
-                    <div class="absolute w-36 h-36 border-2 border-dashed border-sky-400/40 rounded-full animate-[spin_12s_linear_infinite] transform -rotate-x-[65deg]"></div>
-                    <div class="absolute w-44 h-44 border border-dashed border-emerald-400/30 rounded-full animate-[spin_8s_linear_infinite_reverse] transform -rotate-x-[70deg] rotate-y-[15deg]"></div>
-                    
-                    <div class="absolute w-3 h-3 bg-sky-400 rounded-full blur-[2px] -top-2 left-12 animate-ping"></div>
-                    <div class="absolute w-2 h-2 bg-emerald-400 rounded-full blur-[1px] bottom-4 right-10 animate-ping" style="animation-duration: 2.5s;"></div>
                 </div>
             </div>
 
