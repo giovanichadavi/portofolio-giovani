@@ -536,7 +536,6 @@
         </div>
     </section>
 
-    <!-- CARD VISITOR COUNTER BARU (DITEMPATKAN DI PALING BAWAH) -->
     <section id="visitor-analytics" class="pb-16 px-6 md:px-10">
         <div class="max-w-md mx-auto bg-white/60 dark:bg-slate-800/40 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-200/50 dark:border-slate-700/50 text-center relative overflow-hidden transition-all duration-300" data-aos="fade-up">
             <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-primary/10 rounded-full blur-xl pointer-events-none"></div>
@@ -670,26 +669,25 @@
             document.head.appendChild(style);
         }
 
-        // SCRIPT REALTIME HIT COUNTER GLOBAL DENGAN COUNTAPI
+        // SCRIPT REALTIME HIT COUNTER GLOBAL DENGAN MOJOCOUNTER
         document.addEventListener("DOMContentLoaded", () => {
-            // Gunakan ID unik Anda berdasarkan nama domain repositori Anda agar datanya terisolasi
-            const namespace = "safety.danumtaka.com"; 
-            const key = "visits";
+            // String id unik berbasis domain Anda untuk mengisolasi database hit counter
+            const uniqueKey = "safety-danumtaka-com"; 
 
-            fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+            fetch(`https://api.mojocounter.com/hit/${uniqueKey}`)
                 .then(res => res.json())
                 .then(data => {
                     const displayCount = document.getElementById('visitor-count');
                     if (displayCount) {
-                        // Menformat angka ke format lokal Indonesia (Titik sebagai ribuan)
+                        // Memformat response angka dari properti 'value' (contoh: 1.024)
                         displayCount.innerText = data.value.toLocaleString('id-ID');
                     }
                 })
                 .catch(err => {
-                    console.error("Gagal menjangkau CountAPI:", err);
-                    // Fallback visual yang aman jika API mengalami limit kuota atau rintangan jaringan
+                    console.error("Gagal menjangkau MojoCounter API:", err);
+                    // Fallback jika terjadi kendala jaringan lokal client browser
                     const displayCount = document.getElementById('visitor-count');
-                    if (displayCount) displayCount.innerText = "1.428+";
+                    if (displayCount) displayCount.innerText = "1.024+";
                 });
         });
     </script>
