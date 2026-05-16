@@ -111,11 +111,17 @@
             66% { content: "Tech Enthusiast"; }
         }
 
-        /* BARU: Animasi looping teks deskripsi keluar satu persatu */
-        .typing-desc::after { content: ""; animation: typingDesc 8s infinite; font-weight: 600; }
-        @keyframes typingDesc {
-            0%, 100% { content: "Spesialisasi dalam pengembangan sistem backend menggunakan Laravel."; }
-            50% { content: "Fokus pada manajemen infrastruktur server Linux yang optimal."; }
+        /* BARU: Style kursor berkedip untuk efek ketikan satu per satu huruf */
+        .typing-desc-cursor::after {
+            content: "|";
+            animation: blinkCursor 0.8s infinite;
+            color: #0ea5e9;
+            margin-left: 2px;
+            font-weight: bold;
+        }
+        @keyframes blinkCursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         .toggle-label {
@@ -274,7 +280,7 @@
                 I am a <br> <span class="gradient-text typing-text"></span>
             </h1>
             <p class="max-w-2xl text-slate-500 dark:text-slate-400 text-base md:text-lg mb-12 leading-relaxed text-center min-h-[56px]" data-aos="fade-up" data-aos-delay="400">
-                <span class="typing-desc"></span>
+                <span id="typing-desc" class="typing-desc-cursor font-semibold"></span>
             </p>
         </div>
         
@@ -297,7 +303,7 @@
                         <h4 class="text-lg md:text-xl font-bold">Intern Informatic Technology</h4>
                         <p class="text-primary font-bold text-xs md:text-sm mb-1 uppercase">2025 - Sekarang</p>
                         <p class="text-slate-700 dark:text-slate-200 font-bold mb-1">Perumda Air Minum Danum Taka Kabupaten Penajam Paser Utara</p>
-                        <p class="text-slate-500 dark:text-slate-400 max-w-3xl text-sm md:text-base leading-relaxed">Bertanggung jawab dalam pengelolaan infrastruktur IT, pemeliharaan sistem informasi, dan optimalisasi jaringan internal perusahaan.</p>
+                        <p class="text-slate-500 dark:text-slate-400 max-w-3xl text-sm md:text-base leading-relaxed">Bertanggung jawab dalam pengelolaan infrastruktur IT, pemeliharaan sistem informasi, and optimalisasi jaringan internal perusahaan.</p>
                     </div>
                 </div>
                 <div class="relative pl-8 md:pl-12 border-l-2 border-primary/30 flex flex-col md:flex-row gap-4 md:gap-6 items-start" data-aos="fade-up" data-aos-delay="200">
@@ -448,7 +454,7 @@
         </div>
     </section>
 
-    <section id="education" class="py-12 md:py-16 px-6 md:px-10 bg-slate-50 dark:bg-slate-900 overflow-hidden">
+    <section id="education" class="py-12 md:py-16 bg-slate-50 dark:bg-slate-900 overflow-hidden">
         <div class="max-w-7xl mx-auto">
             <h3 class="text-2xl md:text-3xl font-black mb-10 uppercase border-l-8 border-primary pl-6" data-aos="fade-down">Education</h3>
             <div class="space-y-12">
@@ -582,10 +588,17 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
+        // MODIFIKASI: Mengaktifkan modul Autoplay agar Swiper bergeser otomatis secara berkala
         const swiper = new Swiper('.projectSwiper', {
             slidesPerView: 1,
             spaceBetween: 20,
             grabCursor: true,
+            loop: true, // Mengaktifkan looping tak terbatas agar perpindahan mulus
+            autoplay: {
+                delay: 3500, // Bergeser otomatis setiap 3.5 detik
+                disableOnInteraction: false, // Tetap bergeser otomatis meskipun pengguna mengklik navigasi
+                pauseOnMouseEnter: true // Otomatis jeda jika kursor mouse diletakkan di atas kartu proyek
+            },
             pagination: { el: '.swiper-pagination', clickable: true },
             navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
             breakpoints: { 1024: { slidesPerView: 2, spaceBetween: 30 } }
@@ -678,10 +691,8 @@
 
         // SCRIPT REALTIME HIT COUNTER GLOBAL BERBASIS CLOUD HITS API
         document.addEventListener("DOMContentLoaded", () => {
-            // Identifier unik untuk mengisolasi counter portofolio Anda di database global cloud
             const siteIdentifier = "giovani_portfolio_danumtaka";
 
-            // Menggunakan HTTPS API Gateway dari logwork.com / counter api yang andal & anti-down
             fetch(`https://counterapi.com/api/v1/${siteIdentifier}/increment`)
                 .then(res => {
                     if (!res.ok) throw new Error("API Response Error");
@@ -690,14 +701,12 @@
                 .then(response => {
                     const displayCount = document.getElementById('visitor-count');
                     if (displayCount && response.data && response.data.value) {
-                        // Memasukkan data asli dari database cloud dan memformat titik desimal ribuan Indonesia
                         displayCount.innerText = response.data.value.toLocaleString('id-ID');
                     }
                 })
                 .catch(err => {
                     console.error("Gagal menjangkau Cloud Counter API:", err);
                     
-                    // Backup Engine: Jika API eksternal rintangan/blokir lokal, gunakan Tracker Sesi Gabungan
                     let backupCount = parseInt(localStorage.getItem('fallback_real_counter')) || 412;
                     if (!sessionStorage.getItem('session_active')) {
                         backupCount += 1;
@@ -707,6 +716,50 @@
                     const displayCount = document.getElementById('visitor-count');
                     if (displayCount) displayCount.innerText = backupCount.toLocaleString('id-ID');
                 });
+        });
+
+        // SCRIPT ANIMASI MENGETIK HURUF DEMI HURUF (TYPING EFFECT)
+        document.addEventListener("DOMContentLoaded", () => {
+            const textElement = document.getElementById("typing-desc");
+            const phrases = [
+                "Spesialisasi dalam pengembangan sistem backend menggunakan Laravel.",
+                "Fokus pada manajemen infrastruktur server Linux yang optimal."
+            ];
+            
+            let phraseIndex = 0;
+            let characterIndex = 0;
+            let isDeleting = false;
+            let typingSpeed = 60;
+
+            function typeLoop() {
+                const currentPhrase = phrases[phraseIndex];
+                
+                if (isDeleting) {
+                    textElement.innerText = currentPhrase.substring(0, characterIndex - 1);
+                    characterIndex--;
+                    typingSpeed = 30;
+                } else {
+                    textElement.innerText = currentPhrase.substring(0, characterIndex + 1);
+                    characterIndex++;
+                    typingSpeed = 60;
+                }
+
+                if (!isDeleting && characterIndex === currentPhrase.length) {
+                    typingSpeed = 2500;
+                    isDeleting = true;
+                } 
+                else if (isDeleting && characterIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    typingSpeed = 500;
+                }
+
+                setTimeout(typeLoop, typingSpeed);
+            }
+
+            if (textElement) {
+                typeLoop();
+            }
         });
     </script>
 </body>
