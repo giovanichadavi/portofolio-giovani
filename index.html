@@ -262,7 +262,7 @@
         </div>
     </div>
 
-    <section id="home" class="relative min-h-screen flex flex-col justify-center items-center px-6 text-center pt-24">
+    <section id="home" class="relative min-h-screen flex flex-col justify-center items-center px-6 text-center pt-24 overflow-hidden">
         <div class="bg-particles" id="particles-container"></div>
         
         <div class="mb-10 relative" data-aos="zoom-in">
@@ -284,7 +284,7 @@
             </p>
         </div>
         
-        <div class="flex flex-wrap justify-center gap-4 relative z-10 pb-20 w-full" data-aos="fade-up" data-aos-delay="600">
+        <div class="flex flex-wrap justify-center gap-4 relative z-10" data-aos="fade-up" data-aos-delay="600">
             <a href="#projects" class="btn-animate bg-primary text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-bold shadow-lg transition">My Projects</a>
             <a href="#contact" class="btn-animate border-2 border-slate-300 dark:border-slate-700 px-6 md:px-8 py-3 md:py-4 rounded-full font-bold hover:border-primary transition">Contact Me</a>
         </div>
@@ -418,14 +418,17 @@
                     </div>
 
                     <div class="swiper-slide h-auto flex flex-col">
-                        <div class="group rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl border dark:border-slate-700 flex flex-col text-left h-full">
+                        <div class="group rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-white dark:bg-slate-800 shadow-xl border dark:border-slate-700 flex flex-col h-full" data-aos="fade-up" data-aos-delay="300">
                             <div class="h-48 md:h-64 overflow-hidden text-left">
-                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                                <img src="ceritakita.png" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Landing Page Cerita Kita Coffee">
                             </div>
-                            <div class="p-6 md:p-10 flex flex-col flex-grow">
-                                <h4 class="text-xl md:text-2xl font-black mb-4">Water Billing Optimizer</h4>
-                                <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm md:text-base flex-grow">Aplikasi pengolahan data piutang rekening air divisi TRA untuk mempercepat kalkulan tunggakan secara berkala.</p>
-                                <span class="w-fit text-primary font-bold text-[10px] md:text-xs uppercase tracking-tighter border border-primary/30 px-3 md:px-4 py-1 rounded-full">Database Custom Script</span>
+                            <div class="p-6 md:p-10 flex flex-col flex-grow text-left">
+                                <h4 class="text-xl md:text-2xl font-black mb-2">Landing Page Cerita Kita Coffee</h4>
+                                <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm md:text-base flex-grow">Sistem Landing Page interaktif berbasis bento-grid layout modern untuk memperkenalkan racikan menu kopi premium, manajemen operasional katering, serta filosofi ruang kolaborasi digital secara estetik.</p>
+                                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                                    <span class="text-primary font-bold text-[10px] md:text-xs uppercase tracking-tighter border border-primary/30 px-3 md:px-4 py-1 rounded-full">Bento Grid Web Profile</span>
+                                    <button class="btn-animate w-full sm:w-auto bg-primary text-white text-[10px] md:text-xs font-bold px-4 md:px-6 py-2 rounded-full shadow-md text-center">Klik Disini Untuk Buka Detail Project</button>
+                                </div>
                             </div>
                         </div>
                     </div>
