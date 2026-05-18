@@ -457,22 +457,135 @@
         </div>
     </section>
 
-    <section id="education" class="py-12 md:py-16 bg-slate-50 dark:bg-slate-900 overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <h3 class="text-2xl md:text-3xl font-black mb-10 uppercase border-l-8 border-primary pl-6" data-aos="fade-down">Education</h3>
-            <div class="space-y-12">
-                <div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] shadow-xl border dark:border-slate-700 flex flex-col md:flex-row items-center gap-8 group" data-aos="fade-up">
-                    <div class="carrier-img-box w-32 h-32 flex-shrink-0 p-2">
-                        <img src="unmul.png" class="w-full h-full object-contain transition-all duration-300" alt="Mulawarman University">
-                    </div>
-                    <div class="text-center md:text-left">
-                        <h4 class="text-xl md:text-2xl font-black mb-2">Informatics</h4>
-                        <p class="text-primary font-bold text-lg mb-1">Mulawarman University</p>
-                        <p class="text-slate-700 dark:text-slate-200 font-bold text-base mb-1">Bachelor Of Informatics Engineering</p>
-                        <p class="text-green-500 dark:text-green-400 font-extrabold text-sm mb-2">GPA 3.80</p>
-                        <p class="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest text-sm italic">Samarinda, Kalimantan Timur</p>
+    <section id="education" class="py-12 md:py-16 px-6 md:px-10 overflow-hidden">
+        <div class="max-w-5xl mx-auto space-y-16">
+            
+            <div>
+                <h3 class="text-2xl md:text-3xl font-black mb-10 uppercase border-l-8 border-primary pl-6 text-left" data-aos="fade-down">Education</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+                    <div class="bg-white/60 dark:bg-slate-800/40 backdrop-blur-md p-6 rounded-3xl shadow-xl border border-slate-200/50 dark:border-slate-700/50 flex flex-col sm:flex-row items-center gap-6 group w-full h-full" data-aos="fade-up">
+                        <div class="carrier-img-box w-24 h-24 flex-shrink-0 p-1 bg-white rounded-2xl shadow-sm">
+                            <img src="unmul.png" class="w-full h-full object-contain transition-all duration-300" alt="Mulawarman University">
+                        </div>
+                        <div class="text-center sm:text-left flex-grow">
+                            <h4 class="text-lg md:text-xl font-black mb-1">Informatics</h4>
+                            <p class="text-primary font-bold text-base mb-0.5">Mulawarman University</p>
+                            <p class="text-slate-700 dark:text-slate-200 font-bold text-sm mb-0.5">Bachelor Of Informatics Engineering</p>
+                            <p class="text-green-500 dark:text-green-400 font-extrabold text-xs mb-1">GPA 3.80</p>
+                            <p class="text-slate-400 dark:text-slate-500 font-bold uppercase tracking-widest text-[10px] italic">Samarinda, Kalimantan Timur</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+                
+                <div id="deployment-status" class="bg-white/60 dark:bg-slate-800/40 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-200/50 dark:border-slate-700/50 relative overflow-hidden transition-all duration-300 w-full h-full" data-aos="fade-up">
+                    <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-primary/10 rounded-full blur-xl pointer-events-none"></div>
+                    
+                    <div class="flex items-center justify-between mb-5">
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Project Deployment Status</h4>
+                        <div class="flex items-center gap-1.5 bg-green-500/10 text-green-500 px-2.5 py-1 rounded-full text-[10px] font-bold">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> ALL LIVE
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-5">
+                        <div class="bg-slate-100/50 dark:bg-slate-900/30 border dark:border-slate-800 p-3 rounded-2xl">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Avg Response</span>
+                            <span class="text-lg font-black font-mono text-slate-800 dark:text-white">42 ms</span>
+                        </div>
+                        <div class="bg-slate-100/50 dark:bg-slate-900/30 border dark:border-slate-800 p-3 rounded-2xl">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Architecture</span>
+                            <span class="text-xs font-extrabold text-sky-500 flex items-center gap-1 mt-1"><i class="fas fa-cloud"></i> CLOUD LIVE</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3.5">
+                        <div>
+                            <div class="flex justify-between items-center text-[11px] font-bold mb-1">
+                                <span class="text-slate-600 dark:text-slate-300">projectptpn4.vercel.app</span>
+                                <span class="font-mono text-emerald-500"><i class="fas fa-circle-check"></i> Operational</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-1 rounded-full overflow-hidden">
+                                <div class="bg-emerald-500 h-full rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between items-center text-[11px] font-bold mb-1">
+                                <span class="text-slate-600 dark:text-slate-300">safety-pink-psi.vercel.app</span>
+                                <span class="font-mono text-emerald-500"><i class="fas fa-circle-check"></i> Operational</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-1 rounded-full overflow-hidden">
+                                <div class="bg-emerald-500 h-full rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center text-[11px] font-bold mb-1">
+                                <span class="text-slate-600 dark:text-slate-300">coffe-green-alpha.vercel.app</span>
+                                <span class="font-mono text-emerald-500"><i class="fas fa-circle-check"></i> Operational</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-1 rounded-full overflow-hidden">
+                                <div class="bg-emerald-500 h-full rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-[10px] text-slate-400 dark:text-slate-500 text-center mt-5 font-medium leading-relaxed border-t dark:border-slate-800/60 pt-3">
+                        Infrastruktur routing and SSL handshake diatur secara otomatis menggunakan jaringan *Edge Network Vercel*.
+                    </p>
+                </div>
+
+                <div id="project-counter" class="bg-white/60 dark:bg-slate-800/40 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-200/50 dark:border-slate-700/50 relative overflow-hidden transition-all duration-300 w-full h-full" data-aos="fade-up" data-aos-delay="150">
+                    <div class="absolute -left-6 -bottom-6 w-24 h-24 bg-primary/10 rounded-full blur-xl pointer-events-none"></div>
+                    
+                    <div class="flex items-center justify-between mb-5">
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Project Track Record</h4>
+                        <div class="flex items-center gap-1.5 bg-blue-500/10 text-blue-500 px-2.5 py-1 rounded-full text-[10px] font-bold">
+                            <i class="fas fa-diagram-project"></i> MILESTONES
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-5">
+                        <div class="bg-slate-100/50 dark:bg-slate-900/30 border dark:border-slate-800 p-3 rounded-2xl">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Completed</span>
+                            <span class="text-lg font-black font-mono text-slate-800 dark:text-white">14 Proyek</span>
+                        </div>
+                        <div class="bg-slate-100/50 dark:bg-slate-900/30 border dark:border-slate-800 p-3 rounded-2xl">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Client Satisfaction</span>
+                            <span class="text-xs font-extrabold text-emerald-500 flex items-center gap-1 mt-1"><i class="fas fa-star"></i> 100% HAPPY</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3.5">
+                        <div>
+                            <div class="flex justify-between items-center text-[11px] font-bold mb-1">
+                                <span class="text-slate-500 dark:text-slate-400">Enterprise & Internal Systems</span>
+                                <span class="font-mono text-primary">6 Proyek</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-primary h-full rounded-full" style="width: 43%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between items-center text-[11px] font-bold mb-1">
+                                <span class="text-slate-500 dark:text-slate-400">Landing Pages & Custom Modules</span>
+                                <span class="font-mono text-green-500">8 Proyek</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-green-500 h-full rounded-full" style="width: 57%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-[10px] text-slate-400 dark:text-slate-500 text-center mt-5 font-medium leading-relaxed border-t dark:border-slate-800/60 pt-3">
+                        Rekam jejak mencakup pengerjaan sistem informasi divisi internal, manajemen risiko infrastruktur, hingga pembuatan profil visual digital UMKM.
+                    </p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -552,118 +665,6 @@
         </div>
     </section>
 
-    <section class="pb-16 px-6 md:px-10">
-        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-            
-            <div id="deployment-status" class="bg-white/60 dark:bg-slate-800/40 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-200/50 dark:border-slate-700/50 relative overflow-hidden transition-all duration-300 w-full h-full" data-aos="fade-up">
-                <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-primary/10 rounded-full blur-xl pointer-events-none"></div>
-                
-                <div class="flex items-center justify-between mb-5">
-                    <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Project Deployment Status</h4>
-                    <div class="flex items-center gap-1.5 bg-green-500/10 text-green-500 px-2.5 py-1 rounded-full text-[10px] font-bold">
-                        <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> ALL LIVE
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-2 gap-4 mb-5">
-                    <div class="bg-slate-100/50 dark:bg-slate-900/30 border dark:border-slate-800 p-3 rounded-2xl">
-                        <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Avg Response</span>
-                        <span class="text-lg font-black font-mono text-slate-800 dark:text-white">42 ms</span>
-                    </div>
-                    <div class="bg-slate-100/50 dark:bg-slate-900/30 border dark:border-slate-800 p-3 rounded-2xl">
-                        <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Architecture</span>
-                        <span class="text-xs font-extrabold text-sky-500 flex items-center gap-1 mt-1"><i class="fas fa-cloud"></i> CLOUD LIVE</span>
-                    </div>
-                </div>
-
-                <div class="space-y-3.5">
-                    <div>
-                        <div class="flex justify-between items-center text-[11px] font-bold mb-1">
-                            <span class="text-slate-600 dark:text-slate-300">projectptpn4.vercel.app</span>
-                            <span class="font-mono text-emerald-500"><i class="fas fa-circle-check"></i> Operational</span>
-                        </div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-1 rounded-full overflow-hidden">
-                            <div class="bg-emerald-500 h-full rounded-full" style="width: 100%"></div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <div class="flex justify-between items-center text-[11px] font-bold mb-1">
-                            <span class="text-slate-600 dark:text-slate-300">safety-pink-psi.vercel.app</span>
-                            <span class="font-mono text-emerald-500"><i class="fas fa-circle-check"></i> Operational</span>
-                        </div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-1 rounded-full overflow-hidden">
-                            <div class="bg-emerald-500 h-full rounded-full" style="width: 100%"></div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between items-center text-[11px] font-bold mb-1">
-                            <span class="text-slate-600 dark:text-slate-300">coffe-green-alpha.vercel.app</span>
-                            <span class="font-mono text-emerald-500"><i class="fas fa-circle-check"></i> Operational</span>
-                        </div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-1 rounded-full overflow-hidden">
-                            <div class="bg-emerald-500 h-full rounded-full" style="width: 100%"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <p class="text-[10px] text-slate-400 dark:text-slate-500 text-center mt-5 font-medium leading-relaxed border-t dark:border-slate-800/60 pt-3">
-                    Infrastruktur routing and SSL handshake diatur secara otomatis menggunakan jaringan *Edge Network Vercel*.
-                </p>
-            </div>
-
-            <div id="project-counter" class="bg-white/60 dark:bg-slate-800/40 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-slate-200/50 dark:border-slate-700/50 relative overflow-hidden transition-all duration-300 w-full h-full" data-aos="fade-up" data-aos-delay="150">
-                <div class="absolute -left-6 -bottom-6 w-24 h-24 bg-primary/10 rounded-full blur-xl pointer-events-none"></div>
-                
-                <div class="flex items-center justify-between mb-5">
-                    <h4 class="text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Project Track Record</h4>
-                    <div class="flex items-center gap-1.5 bg-blue-500/10 text-blue-500 px-2.5 py-1 rounded-full text-[10px] font-bold">
-                        <i class="fas fa-diagram-project"></i> MILESTONES
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-2 gap-4 mb-5">
-                    <div class="bg-slate-100/50 dark:bg-slate-900/30 border dark:border-slate-800 p-3 rounded-2xl">
-                        <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Completed</span>
-                        <span class="text-lg font-black font-mono text-slate-800 dark:text-white">14 Proyek</span>
-                    </div>
-                    <div class="bg-slate-100/50 dark:bg-slate-900/30 border dark:border-slate-800 p-3 rounded-2xl">
-                        <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Client Satisfaction</span>
-                        <span class="text-xs font-extrabold text-emerald-500 flex items-center gap-1 mt-1"><i class="fas fa-star"></i> 100% HAPPY</span>
-                    </div>
-                </div>
-
-                <div class="space-y-3.5">
-                    <div>
-                        <div class="flex justify-between items-center text-[11px] font-bold mb-1">
-                            <span class="text-slate-500 dark:text-slate-400">Enterprise & Internal Systems</span>
-                            <span class="font-mono text-primary">6 Proyek</span>
-                        </div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
-                            <div class="bg-primary h-full rounded-full" style="width: 43%"></div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <div class="flex justify-between items-center text-[11px] font-bold mb-1">
-                            <span class="text-slate-500 dark:text-slate-400">Landing Pages & Custom Modules</span>
-                            <span class="font-mono text-green-500">8 Proyek</span>
-                        </div>
-                        <div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
-                            <div class="bg-green-500 h-full rounded-full" style="width: 57%"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <p class="text-[10px] text-slate-400 dark:text-slate-500 text-center mt-5 font-medium leading-relaxed border-t dark:border-slate-800/60 pt-3">
-                    Rekam jejak mencakup pengerjaan sistem informasi divisi internal, manajemen risiko infrastruktur, hingga pembuatan profil visual digital UMKM.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
     <footer class="py-12 border-t border-slate-200 dark:border-slate-800 text-center px-6 relative z-10">
         <div class="text-slate-400 dark:text-slate-500 text-[10px] font-black tracking-[0.4em] uppercase text-center">
             @2026 GIOVANI ALL RIGHTS RESERVED
@@ -675,7 +676,6 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // Mengaktifkan modul Autoplay agar Swiper bergeser otomatis secara berkala
         const swiper = new Swiper('.projectSwiper', {
             slidesPerView: 1,
             spaceBetween: 20,
@@ -751,7 +751,6 @@
             }
         }
 
-        // Script Generator Jalur Garis Sirkuit Matriks (Vertikal & Laser Aliran Data)
         const container = document.getElementById('particles-container');
         const lineCount = 14; 
 
@@ -776,7 +775,6 @@
             document.head.appendChild(style);
         }
 
-        // SCRIPT ANIMASI MENGETIK HURUF DEMI HURUF (TYPING EFFECT)
         document.addEventListener("DOMContentLoaded", () => {
             const textElement = document.getElementById("typing-desc");
             const phrases = [
